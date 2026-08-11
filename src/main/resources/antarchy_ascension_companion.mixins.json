@@ -2,7 +2,9 @@
   "required": true,
   "package": "org.ctrlaltdyleted.antarchyascensioncompanion.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+  "compat.appliedsticks.AppliedSticksServerEventsMixin"
+],
   "injectors": {
     "defaultRequire": 1
   },
