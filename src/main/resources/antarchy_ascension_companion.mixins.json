@@ -3,7 +3,8 @@
   "package": "org.ctrlaltdyleted.antarchyascensioncompanion.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "compat.appliedsticks.AppliedSticksServerEventsMixin"
+    "compat.appliedsticks.AppliedSticksServerEventsMixin",
+    "PlayerForcedPoseCompatMixin"
   ],
   "client": [
     "compat.smithingtemplateviewer.SmithingTemplateViewerMixin"

@@ -1,5 +1,11 @@
 # Antarchy - Ascension Companion Changelog
 
+## Still 0.1.1 - 2026-08-18
+
+### Fixed
+
+- Fix Personality crawling with Reliquified Artifacts
+
 ## 0.1.1 - 2026-08-17
 
 ### Added
