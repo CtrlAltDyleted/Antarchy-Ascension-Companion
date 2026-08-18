@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "antarchy_ascension_companion:raw_dense_uranium_block"
+    }
+  ],
+  "result": {
+    "id": "antarchy_ascension_companion:raw_dense_uranium",
+    "count": 9
+  }
+}

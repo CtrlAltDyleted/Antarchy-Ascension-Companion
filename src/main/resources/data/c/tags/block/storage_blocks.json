@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#c:storage_blocks/dense_uranium",
+    "#c:storage_blocks/raw_dense_uranium"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "antarchy_ascension_companion:dense_uranium_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

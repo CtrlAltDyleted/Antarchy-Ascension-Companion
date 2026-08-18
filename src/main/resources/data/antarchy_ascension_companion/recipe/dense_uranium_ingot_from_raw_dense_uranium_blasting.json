@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": {
+    "item": "antarchy_ascension_companion:raw_dense_uranium"
+  },
+  "result": {
+    "id": "antarchy_ascension_companion:dense_uranium_ingot"
+  },
+  "experience": 2.0,
+  "cookingtime": 100
+}

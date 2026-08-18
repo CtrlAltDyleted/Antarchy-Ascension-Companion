@@ -1,0 +1,12 @@
+﻿{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "antarchy:raw_uranium_scrap"
+  },
+  "result": {
+    "id": "antarchy_ascension_companion:dense_uranium_nugget"
+  },
+  "experience": 0.0,
+  "cookingtime": 200
+}

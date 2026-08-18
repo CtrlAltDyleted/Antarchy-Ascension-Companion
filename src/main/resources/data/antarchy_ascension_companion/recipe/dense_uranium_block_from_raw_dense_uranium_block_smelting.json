@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "antarchy_ascension_companion:raw_dense_uranium_block"
+  },
+  "result": {
+    "id": "antarchy_ascension_companion:dense_uranium_block"
+  },
+  "experience": 18.0,
+  "cookingtime": 1800
+}
