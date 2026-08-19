@@ -20,6 +20,7 @@ sourceSets.main.resources {
 }
 
 repositories {
+    mavenCentral()
 }
 
 base {
@@ -76,6 +77,7 @@ configurations {
 }
 
 dependencies {
+    compileOnly "net.java.dev.jna:jna:5.14.0"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

@@ -2,6 +2,7 @@ package org.ctrlaltdyleted.antarchyascensioncompanion;
 
 import org.ctrlaltdyleted.antarchyascensioncompanion.content.ModBlocks;
 import org.ctrlaltdyleted.antarchyascensioncompanion.content.ModItems;
+import org.ctrlaltdyleted.antarchyascensioncompanion.config.CompanionClientConfig;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -9,6 +10,7 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
@@ -18,6 +20,8 @@ public class AntarchyAscensionCompanion {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public AntarchyAscensionCompanion(IEventBus modEventBus, ModContainer modContainer) {
+        modContainer.registerConfig(ModConfig.Type.CLIENT, CompanionClientConfig.SPEC);
+
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         modEventBus.addListener(this::addCreativeTabContents);

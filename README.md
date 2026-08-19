@@ -9,6 +9,10 @@ This mod's purpose is to provide pack-specific:
 - Progression functionality tied to the pack's design
 - Custom systems that are better implemented in Java than in configuration or KubeJS
 
+## Windows first-world memory trim
+
+On Windows clients, the companion is configured to trim Minecraft's own process working set once after the first playable world loads. This is to combat the large memory use of the modpack. The default delay is 5 seconds. The feature is configured in `config/antarchy_ascension_companion-client.toml` with `trimFirstWorldWorkingSet` and `firstWorldWorkingSetTrimDelaySeconds`. It does nothing on Linux, macOS, or dedicated servers.
+
 ## Environment
 
 | Component   | Version  |

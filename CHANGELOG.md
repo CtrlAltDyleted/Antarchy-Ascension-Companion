@@ -1,5 +1,12 @@
 # Antarchy - Ascension Companion Changelog
 
+## Still 0.1.1 - 2026-08-19
+
+### Added
+
+- Trim the Windows working set once after the first world load
+- Add a client config to disable the trim or change its delay
+
 ## Still 0.1.1 - 2026-08-18
 
 ### Fixed
