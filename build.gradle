@@ -21,6 +21,20 @@ sourceSets.main.resources {
 
 repositories {
     mavenCentral()
+    maven {
+        name = "CurseMaven"
+        url = "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+    maven {
+        name = "BlameJared maven"
+        url = "https://maven.blamejared.com/"
+        content {
+            includeGroup "mezz.jei"
+        }
+    }
 
     maven {
         name = "Illusive Soulworks maven"
@@ -130,22 +144,13 @@ idea {
     }
 }
 
-def antarchyPackModsDir = file(
-    providers.gradleProperty('antarchyPackModsDir')
-        .orElse(providers.environmentVariable('ANTARCHY_PACK_MODS_DIR'))
-        .orElse('D:/Minecraft/CurseForge/Instances/Antarchy - Ascension/mods')
-        .get()
-)
-
 dependencies {
-    compileOnly files(
-        new File(antarchyPackModsDir, 'AppliedFlux-1.21-2.1.5-neoforge.jar'),
-        new File(antarchyPackModsDir, 'appliedenergistics2-19.2.17.jar'),
-        new File(antarchyPackModsDir, 'ae2jeiintegration-1.2.1.jar'),
-        new File(antarchyPackModsDir, 'jei-1.21.1-neoforge-19.44.0.403.jar'),
-        new File(antarchyPackModsDir, 'morph-neoforge-1.21.1-1.0.0.jar'),
-        new File(antarchyPackModsDir, 'bettercombat-neoforge-2.4.0+1.21.1.jar'),
-        new File(antarchyPackModsDir, 'player-animation-lib-forge-2.0.4+1.21.1.jar'),
-        new File(antarchyPackModsDir, 'lucky_block-neoforge-0.2.0+1.21.1.jar')
-    )
+    compileOnly "org.appliedenergistics:appliedenergistics2:19.2.17"
+    compileOnly "curse.maven:applied-flux-965012:8204513"
+    compileOnly "curse.maven:ae2-jei-integration-1074338:7727898"
+    compileOnly "mezz.jei:jei-1.21.1-common-api:19.44.0.403"
+    compileOnly "mezz.jei:jei-1.21.1-neoforge-api:19.44.0.403"
+    compileOnly "curse.maven:modern-morph-1645713:8613759"
+    compileOnly "curse.maven:better-combat-by-daedelus-639842:8430183"
+    compileOnly "curse.maven:playeranimator-658587:7389814"
 }
