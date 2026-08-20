@@ -11,10 +11,12 @@
     "accessor.AbstractContainerMenuAccessor",
     "compat.ae2importexportcard.UpgradeContainerMenuCurioTankSlotsMixin",
     "compat.ae2importexportcard.UpgradeHostCurioTankSlotsMixin",
-    "compat.ae2importexportcard.WirelessTerminalCurioTankSlotsMixin"
+    "compat.ae2importexportcard.WirelessTerminalCurioTankSlotsMixin",
+    "compat.luckyblock.LuckyRecipeResultCountMixin"
   ],
   "client": [
-    "compat.smithingtemplateviewer.SmithingTemplateViewerMixin"
+    "compat.smithingtemplateviewer.SmithingTemplateViewerMixin",
+    "compat.bettercombat.BetterCombatMorphAnimationMixin"
   ],
   "injectors": {
     "defaultRequire": 1

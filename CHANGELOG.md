@@ -1,5 +1,13 @@
 # Antarchy - Ascension Companion Changelog
 
+## 0.1.1 more fixes - 2026-08-20
+
+### Added
+
+- Added Applied Flux FE support in JEI
+- Disabled Better Combat attack animations while morphed into other mobs
+- Fixed Lucky Block mod duplicating Lucky Blocks when shift-clicking while trying to increase/decrease luck via crafting
+
 ## Still 0.1.1 - 2026-08-19
 
 ### Added

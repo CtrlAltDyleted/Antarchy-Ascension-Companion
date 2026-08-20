@@ -129,3 +129,23 @@ idea {
         downloadJavadoc = true
     }
 }
+
+def antarchyPackModsDir = file(
+    providers.gradleProperty('antarchyPackModsDir')
+        .orElse(providers.environmentVariable('ANTARCHY_PACK_MODS_DIR'))
+        .orElse('D:/Minecraft/CurseForge/Instances/Antarchy - Ascension/mods')
+        .get()
+)
+
+dependencies {
+    compileOnly files(
+        new File(antarchyPackModsDir, 'AppliedFlux-1.21-2.1.5-neoforge.jar'),
+        new File(antarchyPackModsDir, 'appliedenergistics2-19.2.17.jar'),
+        new File(antarchyPackModsDir, 'ae2jeiintegration-1.2.1.jar'),
+        new File(antarchyPackModsDir, 'jei-1.21.1-neoforge-19.44.0.403.jar'),
+        new File(antarchyPackModsDir, 'morph-neoforge-1.21.1-1.0.0.jar'),
+        new File(antarchyPackModsDir, 'bettercombat-neoforge-2.4.0+1.21.1.jar'),
+        new File(antarchyPackModsDir, 'player-animation-lib-forge-2.0.4+1.21.1.jar'),
+        new File(antarchyPackModsDir, 'lucky_block-neoforge-0.2.0+1.21.1.jar')
+    )
+}
