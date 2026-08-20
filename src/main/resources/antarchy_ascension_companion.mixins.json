@@ -7,7 +7,11 @@
     "PlayerForcedPoseCompatMixin",
     "compat.createsa.CreateSaFlyingProcedureMixin",
     "compat.createsa.CreateSaTankProcedureMixin",
-    "compat.createsa.CreateSaJetpackInventoryTickMixin"
+    "compat.createsa.CreateSaJetpackInventoryTickMixin",
+    "accessor.AbstractContainerMenuAccessor",
+    "compat.ae2importexportcard.UpgradeContainerMenuCurioTankSlotsMixin",
+    "compat.ae2importexportcard.UpgradeHostCurioTankSlotsMixin",
+    "compat.ae2importexportcard.WirelessTerminalCurioTankSlotsMixin"
   ],
   "client": [
     "compat.smithingtemplateviewer.SmithingTemplateViewerMixin"

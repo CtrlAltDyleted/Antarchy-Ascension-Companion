@@ -28,6 +28,10 @@ public final class FirstWorldWorkingSetTrim {
             return;
         }
 
+        if (!CompanionClientConfig.SPEC.isLoaded()) {
+            return;
+        }
+
         if (!CompanionClientConfig.TRIM_FIRST_WORLD_WORKING_SET.get()) {
             return;
         }
