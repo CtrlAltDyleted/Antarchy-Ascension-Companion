@@ -21,6 +21,11 @@ sourceSets.main.resources {
 
 repositories {
     mavenCentral()
+
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
 }
 
 base {
@@ -78,6 +83,9 @@ configurations {
 
 dependencies {
     compileOnly "net.java.dev.jna:jna:5.14.0"
+
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [],
+  "remove": [
+    "create:goggles",
+    "actualadditions:engineers_goggles",
+    "actualadditions:engineers_goggles_advanced",
+    "occultengineering:combined_goggles"
+  ]
+}

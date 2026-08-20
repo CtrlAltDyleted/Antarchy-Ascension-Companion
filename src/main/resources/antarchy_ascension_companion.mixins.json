@@ -4,7 +4,10 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "compat.appliedsticks.AppliedSticksServerEventsMixin",
-    "PlayerForcedPoseCompatMixin"
+    "PlayerForcedPoseCompatMixin",
+    "compat.createsa.CreateSaFlyingProcedureMixin",
+    "compat.createsa.CreateSaTankProcedureMixin",
+    "compat.createsa.CreateSaJetpackInventoryTickMixin"
   ],
   "client": [
     "compat.smithingtemplateviewer.SmithingTemplateViewerMixin"

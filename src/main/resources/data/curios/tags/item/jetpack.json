@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#create_sa:jetpack",
+    "mekanism:jetpack",
+    "mekanism:jetpack_armored"
+  ]
+}

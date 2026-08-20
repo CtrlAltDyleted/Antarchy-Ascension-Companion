@@ -3,5 +3,11 @@
   "item.antarchy_ascension_companion.raw_dense_uranium": "Raw Dense Uranium",
   "item.antarchy_ascension_companion.dense_uranium_ingot": "Dense Uranium Ingot",
   "block.antarchy_ascension_companion.raw_dense_uranium_block": "Raw Dense Uranium Block",
-  "block.antarchy_ascension_companion.dense_uranium_block": "Dense Uranium Block"
+  "block.antarchy_ascension_companion.dense_uranium_block": "Dense Uranium Block",
+  "curios.identifier.jetpack": "Jetpack",
+  "curios.identifier.filling_fueling_tank": "Filling/Fueling Tank",
+  "curios.identifier.engineers_goggles": "Engineer's Goggles",
+  "curios.identifier.wireless_terminal": "Wireless Terminal",
+  "key.ae2.wireless_drive_terminal": "Open Wireless Drive Terminal",
+  "key.ae2.wireless_exp_encoding_terminal": "Open Wireless Expanded Pattern Encoding Terminal"
 }

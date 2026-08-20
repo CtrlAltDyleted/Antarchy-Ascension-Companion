@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "ae2:wireless_terminal",
+    "ae2:wireless_crafting_terminal",
+    "ae2wtlib:wireless_pattern_access_terminal",
+    "ae2wtlib:wireless_pattern_encoding_terminal",
+    "ae2wtlib:wireless_universal_terminal",
+    "advanced_ae:wireless_quantum_crafter_terminal",
+    "ae2driveterminal:wireless_drive_terminal"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "entities": [
+    "player"
+  ],
+  "slots": [
+    "jetpack",
+    "filling_fueling_tank",
+    "engineers_goggles",
+    "wireless_terminal"
+  ]
+}
