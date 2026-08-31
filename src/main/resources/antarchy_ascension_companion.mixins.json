@@ -3,6 +3,7 @@
   "package": "org.ctrlaltdyleted.antarchyascensioncompanion.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "compat.appliedpneumatics.AppliedPneumaticsAmadronTickerCompatMixin",
     "compat.appliedsticks.AppliedSticksServerEventsMixin",
     "PlayerForcedPoseCompatMixin",
     "compat.createsa.CreateSaFlyingProcedureMixin",
@@ -12,7 +13,15 @@
     "compat.ae2importexportcard.UpgradeContainerMenuCurioTankSlotsMixin",
     "compat.ae2importexportcard.UpgradeHostCurioTankSlotsMixin",
     "compat.ae2importexportcard.WirelessTerminalCurioTankSlotsMixin",
-    "compat.luckyblock.LuckyRecipeResultCountMixin"
+    "compat.luckyblock.LuckyRecipeResultCountMixin",
+    "compat.integratedmekanism.IntegratedMekanismFactoryTierMixin",
+    "compat.neoforge.SimpleTierNullRepairIngredientMixin",
+    "compat.quark.QuarkMobCategoryMixin",
+    "compat.luckyblock.LuckyBlockNeoForgeClientInitMixin",
+    "compat.tectonic.TectonicFabricOverlayMetadataCompatMixin",
+    "compat.deimos.DeimosGeneratedRecipeStackSizeMixin",
+    "compat.biolith.BiolithDimensionTypeAccessor",
+    "compat.biolith.BiolithUnsupportedMultiNoiseBypassMixin"
   ],
   "client": [
     "compat.smithingtemplateviewer.SmithingTemplateViewerMixin",

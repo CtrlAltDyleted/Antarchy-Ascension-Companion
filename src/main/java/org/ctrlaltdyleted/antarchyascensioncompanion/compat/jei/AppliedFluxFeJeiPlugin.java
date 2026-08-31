@@ -56,6 +56,7 @@ public final class AppliedFluxFeJeiPlugin implements IModPlugin {
                 return "Forge Energy (FE)";
             }
 
+            @SuppressWarnings("removal")
             @Override
             public String getUniqueId(FluxKey ingredient, UidContext context) {
                 return "appflux:fe";

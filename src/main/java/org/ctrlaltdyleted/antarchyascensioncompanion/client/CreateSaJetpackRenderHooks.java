@@ -180,11 +180,6 @@ public final class CreateSaJetpackRenderHooks {
                     player.getItemBySlot(EquipmentSlot.CHEST);
 
             try {
-                // Create SA only renders its extra jetpack machinery when
-                // it sees the jetpack in the vanilla chest slot.
-                //
-                // This runs inside the normal player render-layer pipeline,
-                // so the PoseStack is already positioned correctly.
                 player.setItemSlot(
                         EquipmentSlot.CHEST,
                         jetpack);

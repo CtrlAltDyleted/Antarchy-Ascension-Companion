@@ -22,20 +22,16 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/**
- * Skips Applied Construction Sticks' server-side raycast when the held item cannot
- * produce a stick job. The target mod otherwise performs the raycast every player tick.
- */
 @Pseudo
 @Mixin(targets = "com.benbenlaw.appliedsticks.event.ServerEvents", remap = false)
 public abstract class AppliedSticksServerEventsMixin {
     @Unique
-    private static final TagKey<Item> ANTARCHY_ASCENSION_COMPANION$CONSTRUCTION_STICKS = TagKey.create(
+    private static final TagKey<Item> antarchyascensioncompanion$CONSTRUCTION_STICKS = TagKey.create(
             Registries.ITEM,
             ResourceLocation.fromNamespaceAndPath("constructionstick", "construction_sticks"));
 
     @Unique
-    private static final ResourceLocation ANTARCHY_ASCENSION_COMPANION$WIRELESS_LINK_TARGET =
+    private static final ResourceLocation antarchyascensioncompanion$WIRELESS_LINK_TARGET =
             ResourceLocation.fromNamespaceAndPath("ae2", "wireless_link_target");
 
     @Shadow
@@ -43,7 +39,7 @@ public abstract class AppliedSticksServerEventsMixin {
     private static HashMap<Player, Set<BlockPos>> lastSentPositions;
 
     @Inject(method = "updateStickJob", at = @At("HEAD"), cancellable = true, remap = false)
-    private static void antarchyAscensionCompanion$skipUnneededRaycast(
+    private static void antarchyascensioncompanion$skipUnneededRaycast(
             PlayerTickEvent.Pre event,
             CallbackInfo ci) {
         Player player = event.getEntity();
@@ -53,20 +49,20 @@ public abstract class AppliedSticksServerEventsMixin {
         }
 
         ItemStack heldItem = player.getMainHandItem();
-        if (!heldItem.is(ANTARCHY_ASCENSION_COMPANION$CONSTRUCTION_STICKS)) {
-            antarchyAscensionCompanion$clearAndCancel(player, ci);
+        if (!heldItem.is(antarchyascensioncompanion$CONSTRUCTION_STICKS)) {
+            antarchyascensioncompanion$clearAndCancel(player, ci);
             return;
         }
 
         DataComponentType<?> wirelessLinkTarget =
-                BuiltInRegistries.DATA_COMPONENT_TYPE.get(ANTARCHY_ASCENSION_COMPANION$WIRELESS_LINK_TARGET);
+                BuiltInRegistries.DATA_COMPONENT_TYPE.get(antarchyascensioncompanion$WIRELESS_LINK_TARGET);
         if (wirelessLinkTarget == null || !heldItem.has(wirelessLinkTarget)) {
-            antarchyAscensionCompanion$clearAndCancel(player, ci);
+            antarchyascensioncompanion$clearAndCancel(player, ci);
         }
     }
 
     @Unique
-    private static void antarchyAscensionCompanion$clearAndCancel(Player player, CallbackInfo ci) {
+    private static void antarchyascensioncompanion$clearAndCancel(Player player, CallbackInfo ci) {
         lastSentPositions.remove(player);
         ci.cancel();
     }

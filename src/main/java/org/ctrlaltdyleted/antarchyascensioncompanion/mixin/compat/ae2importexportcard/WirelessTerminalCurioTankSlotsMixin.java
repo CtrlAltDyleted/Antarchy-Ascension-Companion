@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
         remap = false)
 public abstract class WirelessTerminalCurioTankSlotsMixin {
     @Unique
-    private static final ThreadLocal<Integer> ANTARCHY_LOGICAL_SLOT =
+    private static final ThreadLocal<Integer> antarchyascensioncompanion$logicalSlot =
             ThreadLocal.withInitial(() -> -1);
 
     @Dynamic("Added by AE2 Import Export Card")
@@ -30,8 +30,8 @@ public abstract class WirelessTerminalCurioTankSlotsMixin {
             at = @At("HEAD"),
             require = 0,
             remap = false)
-    private void antarchy$begin(CallbackInfo ci) {
-        ANTARCHY_LOGICAL_SLOT.remove();
+    private void antarchyascensioncompanion$begin(CallbackInfo ci) {
+        antarchyascensioncompanion$logicalSlot.remove();
     }
 
     @Dynamic("Added by AE2 Import Export Card")
@@ -42,11 +42,11 @@ public abstract class WirelessTerminalCurioTankSlotsMixin {
                     target = "Lnet/minecraft/world/entity/player/Inventory;getItem(I)Lnet/minecraft/world/item/ItemStack;"),
             require = 0,
             remap = false)
-    private ItemStack antarchy$getStack(
+    private ItemStack antarchyascensioncompanion$getStack(
             Inventory inventory,
             int slot) {
 
-        ANTARCHY_LOGICAL_SLOT.set(slot);
+        antarchyascensioncompanion$logicalSlot.set(slot);
 
         if (Ae2CurioTankBridge.isTankSlot(slot)) {
             return Ae2CurioTankBridge.getStack(
@@ -68,7 +68,7 @@ public abstract class WirelessTerminalCurioTankSlotsMixin {
                     target = "Lnet/minecraft/world/entity/player/Inventory;setItem(ILnet/minecraft/world/item/ItemStack;)V"),
             require = 0,
             remap = false)
-    private void antarchy$writeBack(
+    private void antarchyascensioncompanion$writeBack(
             Inventory inventory,
             int slot,
             ItemStack stack) {
@@ -91,11 +91,11 @@ public abstract class WirelessTerminalCurioTankSlotsMixin {
             cancellable = true,
             require = 0,
             remap = false)
-    private void antarchy$blockTankImport(
+    private void antarchyascensioncompanion$blockTankImport(
             CallbackInfo ci) {
 
         if (Ae2CurioTankBridge.isTankSlot(
-                ANTARCHY_LOGICAL_SLOT.get())) {
+                antarchyascensioncompanion$logicalSlot.get())) {
             ci.cancel();
         }
     }
@@ -107,11 +107,11 @@ public abstract class WirelessTerminalCurioTankSlotsMixin {
             cancellable = true,
             require = 0,
             remap = false)
-    private void antarchy$blockTankExport(
+    private void antarchyascensioncompanion$blockTankExport(
             CallbackInfo ci) {
 
         if (Ae2CurioTankBridge.isTankSlot(
-                ANTARCHY_LOGICAL_SLOT.get())) {
+                antarchyascensioncompanion$logicalSlot.get())) {
             ci.cancel();
         }
     }
@@ -122,7 +122,7 @@ public abstract class WirelessTerminalCurioTankSlotsMixin {
             at = @At("RETURN"),
             require = 0,
             remap = false)
-    private void antarchy$end(CallbackInfo ci) {
-        ANTARCHY_LOGICAL_SLOT.remove();
+    private void antarchyascensioncompanion$end(CallbackInfo ci) {
+        antarchyascensioncompanion$logicalSlot.remove();
     }
 }

@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = AbstractClientPlayer.class, priority = 900)
 public abstract class BetterCombatMorphAnimationMixin {
     @Unique
-    private boolean antarchy$wasNonPlayerMorph;
+    private boolean antarchyascensioncompanion$wasNonPlayerMorph;
 
     @Dynamic("Added to AbstractClientPlayer by Better Combat")
     @Inject(
@@ -25,14 +25,14 @@ public abstract class BetterCombatMorphAnimationMixin {
         cancellable = true,
         remap = false
     )
-    private void antarchy$suppressAttackAnimationWhileMorphed(
+    private void antarchyascensioncompanion$suppressAttackAnimationWhileMorphed(
         String animation,
         AnimatedHand hand,
         float length,
         float upswing,
         CallbackInfo ci
     ) {
-        if (antarchy$isNonPlayerMorph()) {
+        if (antarchyascensioncompanion$isNonPlayerMorph()) {
             ci.cancel();
         }
     }
@@ -43,21 +43,21 @@ public abstract class BetterCombatMorphAnimationMixin {
         at = @At("HEAD"),
         remap = false
     )
-    private void antarchy$stopRunningAttackAnimationOnMorph(
+    private void antarchyascensioncompanion$stopRunningAttackAnimationOnMorph(
         CallbackInfo ci
     ) {
-        boolean morphed = antarchy$isNonPlayerMorph();
+        boolean morphed = antarchyascensioncompanion$isNonPlayerMorph();
 
-        if (morphed && !antarchy$wasNonPlayerMorph) {
+        if (morphed && !antarchyascensioncompanion$wasNonPlayerMorph) {
             ((PlayerAttackAnimatable) (Object) this)
                 .stopAttackAnimation(0.0F);
         }
 
-        antarchy$wasNonPlayerMorph = morphed;
+        antarchyascensioncompanion$wasNonPlayerMorph = morphed;
     }
 
     @Unique
-    private boolean antarchy$isNonPlayerMorph() {
+    private boolean antarchyascensioncompanion$isNonPlayerMorph() {
         Player player = (Player) (Object) this;
 
         LivingEntity activeMorph =

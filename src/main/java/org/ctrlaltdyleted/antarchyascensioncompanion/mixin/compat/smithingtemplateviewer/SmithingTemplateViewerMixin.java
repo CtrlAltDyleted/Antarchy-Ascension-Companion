@@ -27,7 +27,7 @@ public abstract class SmithingTemplateViewerMixin {
         ),
         remap = false
     )
-    private Stream antarchy$filterUnsafeSmithingTrimRecipes(
+    private Stream antarchyascensioncompanion$filterUnsafeSmithingTrimRecipes(
         Stream stream,
         Predicate originalPredicate
     ) {
@@ -41,17 +41,17 @@ public abstract class SmithingTemplateViewerMixin {
                 return false;
             }
 
-            return antarchy$isSafeForSmithingTemplateViewer(recipe);
+            return antarchyascensioncompanion$isSafeForSmithingTemplateViewer(recipe);
         });
     }
 
-    private static boolean antarchy$isSafeForSmithingTemplateViewer(
+    private static boolean antarchyascensioncompanion$isSafeForSmithingTemplateViewer(
         SmithingTrimRecipe recipe
     ) {
         try {
-            Ingredient template = antarchy$getIngredient(recipe, "template");
-            Ingredient base = antarchy$getIngredient(recipe, "base");
-            Ingredient addition = antarchy$getIngredient(recipe, "addition");
+            Ingredient template = antarchyascensioncompanion$getIngredient(recipe, "template");
+            Ingredient base = antarchyascensioncompanion$getIngredient(recipe, "base");
+            Ingredient addition = antarchyascensioncompanion$getIngredient(recipe, "addition");
 
             if (template == null || base == null || addition == null) {
                 return false;
@@ -91,7 +91,7 @@ public abstract class SmithingTemplateViewerMixin {
         }
     }
 
-    private static Ingredient antarchy$getIngredient(
+    private static Ingredient antarchyascensioncompanion$getIngredient(
         SmithingTrimRecipe recipe,
         String fieldName
     ) throws ReflectiveOperationException {

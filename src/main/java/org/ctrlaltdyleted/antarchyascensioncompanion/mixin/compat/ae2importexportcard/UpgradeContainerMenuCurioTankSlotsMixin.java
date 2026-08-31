@@ -23,14 +23,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
         remap = false)
 public abstract class UpgradeContainerMenuCurioTankSlotsMixin {
     @Unique
-    private static final String ANTARCHY_CARD_PLAYER_SLOT =
+    private static final String antarchyascensioncompanion$cardPlayerSlot =
             "com.ultramega.ae2importexportcard.container.CardPlayerSlot";
 
     @Inject(
             method = "createCardPlayerInventorySlots",
             at = @At("TAIL"),
             remap = false)
-    private void antarchy$addTankSlots(
+    private void antarchyascensioncompanion$addTankSlots(
             Inventory inventory,
             CallbackInfo ci) {
 
@@ -40,15 +40,15 @@ public abstract class UpgradeContainerMenuCurioTankSlotsMixin {
         AbstractContainerMenuAccessor menu =
                 (AbstractContainerMenuAccessor) (Object) this;
 
-        menu.antarchy$addSlot(
-                antarchy$newCardSlot(
+        menu.antarchyascensioncompanion$addSlot(
+                antarchyascensioncompanion$newCardSlot(
                         container,
                         Ae2CurioTankBridge.FIRST_LOGICAL_SLOT,
                         2,
                         34));
 
-        menu.antarchy$addSlot(
-                antarchy$newCardSlot(
+        menu.antarchyascensioncompanion$addSlot(
+                antarchyascensioncompanion$newCardSlot(
                         container,
                         Ae2CurioTankBridge.SECOND_LOGICAL_SLOT,
                         2,
@@ -56,7 +56,7 @@ public abstract class UpgradeContainerMenuCurioTankSlotsMixin {
     }
 
     @Unique
-    private static Slot antarchy$newCardSlot(
+    private static Slot antarchyascensioncompanion$newCardSlot(
             Container container,
             int index,
             int x,
@@ -64,7 +64,7 @@ public abstract class UpgradeContainerMenuCurioTankSlotsMixin {
 
         try {
             Class<?> type =
-                    Class.forName(ANTARCHY_CARD_PLAYER_SLOT);
+                    Class.forName(antarchyascensioncompanion$cardPlayerSlot);
 
             Constructor<?> constructor =
                     type.getConstructor(

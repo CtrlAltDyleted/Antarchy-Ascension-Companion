@@ -83,7 +83,6 @@ public final class CreateSaTankFluidCapabilities {
                 32_000,
                 FluidTags.LAVA);
 
-        // Creative Filling Tank keeps its special Create SA behavior.
     }
 
     private static void registerTank(

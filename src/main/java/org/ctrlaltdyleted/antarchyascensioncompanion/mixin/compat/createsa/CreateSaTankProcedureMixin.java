@@ -28,7 +28,7 @@ public abstract class CreateSaTankProcedureMixin {
             ),
             require = 1
     )
-    private static ItemStack antarchy$useDedicatedJetpackForTankTransfer(
+    private static ItemStack antarchyascensioncompanion$useDedicatedJetpackForTankTransfer(
             LivingEntity entity,
             EquipmentSlot slot) {
 

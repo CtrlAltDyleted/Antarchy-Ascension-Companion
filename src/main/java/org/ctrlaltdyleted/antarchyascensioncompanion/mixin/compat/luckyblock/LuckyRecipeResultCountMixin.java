@@ -21,7 +21,7 @@ public abstract class LuckyRecipeResultCountMixin {
         cancellable = true,
         remap = false
     )
-    private void antarchy$forceSingleLuckModifierResult(
+    private void antarchyascensioncompanion$forceSingleLuckModifierResult(
         CraftingInput input,
         HolderLookup.Provider registries,
         CallbackInfoReturnable<ItemStack> cir

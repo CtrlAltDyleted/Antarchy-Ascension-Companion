@@ -32,7 +32,7 @@ public abstract class CreateSaJetpackInventoryTickMixin {
             ),
             require = 1
     )
-    private boolean antarchy$treatDedicatedJetpackAsWorn(
+    private boolean antarchyascensioncompanion$treatDedicatedJetpackAsWorn(
             Iterable<?> armorSlots,
             Object wanted,
             ItemStack stack,

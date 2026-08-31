@@ -1,39 +1,77 @@
 # Antarchy - Ascension Companion Changelog
 
-## 0.1.1 more fixes - 2026-08-20
+## Alpha 0.1.0
 
-### Added
+### 2026-08-30
 
-- Added Applied Flux FE support in JEI
-- Disabled Better Combat attack animations while morphed into other mobs
-- Fixed Lucky Block mod duplicating Lucky Blocks when shift-clicking while trying to increase/decrease luck via crafting
+#### Added
 
-## Still 0.1.1 - 2026-08-19
+- Added JEI blacklist removal support so blacklisted ingredients are fully removed from JEI
 
-### Added
+#### Fixed
 
-- Trim the Windows working set once after the first world load
-- Add a client config to disable the trim or change its delay
-- Add both Filling/Fueling Tank slots to AE2 Import/Export Cards
-- Make Import and Export Cards work with equipped Curio tanks
-- Make Create SA Filling Tanks fill from water Spouts
-- Make Create SA Fueling Tanks fill from lava Spouts
-- Ensure that the tanks are not imported or replaced by normal items
-- Fix the memory trim checking its config before the config is loaded
+- Fixed Applied Pneumatics Amadron Process Stations not ticking correctly with TIAB Entity Fix installed
+- Fixed Biolith interfering with unsupported MultiNoise dimensions
+- Fixed Deimos generating recipes with invalid output stack sizes
+- Fixed Integrated Mekanism trying to use unsupported factory tiers added by Evolved Mekanism
+- Fixed Lucky Block NeoForge client initialization
+- Fixed NeoForge SimpleTier crashes caused by null repair ingredients
+- Fixed Quark Stoneling, Toretoise, and Foxhound mob categories
+- Fixed Tectonic Fabric-only pack metadata being read on NeoForge
+- Fixed Actually Additions Engineer's Goggles using incorrect Curios item IDs
+- Fixed final Alpha issues found during regression testing
 
-## Still 0.1.1 - 2026-08-18
+#### Changed
 
-### Fixed
+- Updated JEI API support to 19.51.0.417
+- Normalized all Companion Mixin and injected member names to use the full `antarchyascensioncompanion$` prefix
+- Removed obsolete warning-only compatibility hooks
+- Removed the experimental Windows working-set trim and its client config
+- Removed the unused JNA dependency
+- Cleaned stale Companion code, comments, and resource files
+- Renamed the release from development version 0.1.1 to Alpha 0.1.0
 
-- Fix Personality crawling with Reliquified Artifacts
+### 2026-08-20
 
-## 0.1.1 - 2026-08-17
+#### Added
 
-### Added
+- Added Applied Flux Forge Energy support in JEI
 
-- Add Dense Uranium material progression
-- Add Dense Uranium Nugget, Raw Dense Uranium, Raw Dense Uranium Block, Dense Uranium Ingot, and Dense Uranium Block
-- Add crafting, smelting, and blasting recipes for Dense Uranium
-- Add Common tags, mining requirements, block loot, models, textures, and localization for Dense Uranium
-- Add repository audit, review, and changelog tools
-- Optimize the Companion mod logo
+#### Fixed
+
+- (kinda) Fixed Better Combat attack animations while morphed into non-player mobs
+- Fixed Lucky Block duplicating blocks when shift-clicking luck modification recipes
+- Fixed Smithing Template Viewer attempting to process invalid smithing recipes
+
+### 2026-08-19
+
+#### Added
+
+- Added dedicated Curios slots for jetpacks, Filling/Fueling Tanks, Engineer's Goggles, and wireless terminals
+- Added armor attribute support for equipment moved out of vanilla armor slots
+- Added a Windows working-set trim after first world load with a client config for enabling the trim and changing its delay
+
+### 2026-08-18
+
+#### Fixed
+
+- Fixed Personality crawling conflicting with Reliquified Artifacts' Helium Flamingo forced swimming pose
+
+### 2026-08-17
+
+#### Added
+
+- Added Dense Uranium Nugget, Raw Dense Uranium, Raw Dense Uranium Block, Dense Uranium Ingot, and Dense Uranium Block
+- Added Dense Uranium crafting, smelting, blasting, tags, loot tables, mining requirements, models, textures, and localization
+- Added Raw Uranium Scrap processing into Dense Uranium progression
+- Added repository audit, review, and changelog tools
+
+## Alpha Pre-Release 0.1.0
+
+#### Added
+
+- Added official Antarchy - Ascension Companion branding and mod icon
+
+#### Fixed
+
+- Fixed major server lag caused by Applied Construction Sticks and AE2 integration because Applied Construction Sticks was performing AE2 linking checks when a valid linked stick was not being held

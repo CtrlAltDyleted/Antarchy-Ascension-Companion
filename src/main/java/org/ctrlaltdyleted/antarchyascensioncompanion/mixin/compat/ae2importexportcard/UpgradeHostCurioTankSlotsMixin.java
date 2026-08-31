@@ -19,7 +19,7 @@ public abstract class UpgradeHostCurioTankSlotsMixin {
             at = @At("HEAD"),
             cancellable = true,
             remap = false)
-    private static void antarchy$normalize(
+    private static void antarchyascensioncompanion$normalize(
             int[] input,
             CallbackInfoReturnable<int[]> cir) {
 
@@ -29,7 +29,7 @@ public abstract class UpgradeHostCurioTankSlotsMixin {
             return;
         }
 
-        cir.setReturnValue(antarchy$expand(input));
+        cir.setReturnValue(antarchyascensioncompanion$expand(input));
     }
 
     @Inject(
@@ -37,19 +37,19 @@ public abstract class UpgradeHostCurioTankSlotsMixin {
             at = @At("RETURN"),
             cancellable = true,
             remap = false)
-    private void antarchy$expandReturned(
+    private void antarchyascensioncompanion$expandReturned(
             CallbackInfoReturnable<int[]> cir) {
 
         int[] value = cir.getReturnValue();
 
         if (value == null
                 || value.length != Ae2CurioTankBridge.LOGICAL_SIZE) {
-            cir.setReturnValue(antarchy$expand(value));
+            cir.setReturnValue(antarchyascensioncompanion$expand(value));
         }
     }
 
     @Unique
-    private static int[] antarchy$expand(int[] input) {
+    private static int[] antarchyascensioncompanion$expand(int[] input) {
         int[] result =
                 new int[Ae2CurioTankBridge.LOGICAL_SIZE];
 

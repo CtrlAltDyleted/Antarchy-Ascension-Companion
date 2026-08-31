@@ -27,7 +27,7 @@ public abstract class CreateSaFlyingProcedureMixin {
             ),
             require = 1
     )
-    private static ItemStack antarchy$useDedicatedJetpackSlot(
+    private static ItemStack antarchyascensioncompanion$useDedicatedJetpackSlot(
             LivingEntity entity,
             EquipmentSlot slot) {
 

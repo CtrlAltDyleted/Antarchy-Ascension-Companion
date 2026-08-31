@@ -18,7 +18,6 @@ public final class CurioEquipmentHelper {
     public static final String JETPACK_SLOT = "jetpack";
     public static final String TANK_SLOT = "filling_fueling_tank";
     public static final String GOGGLES_SLOT = "engineers_goggles";
-    public static final String TERMINAL_SLOT = "wireless_terminal";
 
     public static final TagKey<Item> CREATE_SA_JETPACKS =
             ItemTags.create(ResourceLocation.fromNamespaceAndPath("create_sa", "jetpack"));

@@ -8,68 +8,52 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
-
 @Mixin(Player.class)
 public abstract class PlayerForcedPoseCompatMixin {
 
     @Unique
-    private static final String ANTARCHY$HELIUM_CLIENT =
+    private static final String antarchyascensioncompanion$HELIUM_CLIENT =
             "it.hurts.shatterbyte.reliquified_artifacts.items.charm.HeliumFlamingoItem$HeliumFlamingoClientEvent";
 
     @Unique
-    private static final String ANTARCHY$HELIUM_COMMON =
+    private static final String antarchyascensioncompanion$HELIUM_COMMON =
             "it.hurts.shatterbyte.reliquified_artifacts.items.charm.HeliumFlamingoItem$CommonEvent";
 
     @Unique
-    private static final StackWalker ANTARCHY$STACK_WALKER =
+    private static final StackWalker antarchyascensioncompanion$STACK_WALKER =
             StackWalker.getInstance();
 
     @Unique
-    private static final Set<UUID> ANTARCHY$CLIENT_HELIUM_POSES =
-            ConcurrentHashMap.newKeySet();
-
-    @Unique
-    private static final Set<UUID> ANTARCHY$SERVER_HELIUM_POSES =
-            ConcurrentHashMap.newKeySet();
+    private boolean antarchyascensioncompanion$heliumOwnsPose;
 
     @Inject(
             method = "setForcedPose",
             at = @At("HEAD"),
             cancellable = true
     )
-    private void antarchy$protectForcedPose(Pose pose, CallbackInfo ci) {
+    private void antarchyascensioncompanion$protectForcedPose(Pose pose, CallbackInfo ci) {
         Player player = (Player) (Object) this;
 
-        Set<UUID> heliumPoses = player.level().isClientSide()
-                ? ANTARCHY$CLIENT_HELIUM_POSES
-                : ANTARCHY$SERVER_HELIUM_POSES;
-
-        UUID playerId = player.getUUID();
-
-        boolean fromHeliumFlamingo = ANTARCHY$STACK_WALKER.walk(frames ->
+        boolean fromHeliumFlamingo = antarchyascensioncompanion$STACK_WALKER.walk(frames ->
                 frames
                         .limit(12)
                         .map(StackWalker.StackFrame::getClassName)
                         .anyMatch(name ->
-                                name.equals(ANTARCHY$HELIUM_CLIENT)
-                                        || name.equals(ANTARCHY$HELIUM_COMMON)
+                                name.equals(antarchyascensioncompanion$HELIUM_CLIENT)
+                                        || name.equals(antarchyascensioncompanion$HELIUM_COMMON)
                         )
         );
 
         if (!fromHeliumFlamingo) {
-            heliumPoses.remove(playerId);
+            antarchyascensioncompanion$heliumOwnsPose = false;
             return;
         }
 
         Pose currentPose = player.getForcedPose();
-        boolean heliumOwnsPose = heliumPoses.contains(playerId);
 
         if (pose == Pose.SWIMMING) {
-            if (currentPose == null || heliumOwnsPose) {
-                heliumPoses.add(playerId);
+            if (currentPose == null || antarchyascensioncompanion$heliumOwnsPose) {
+                antarchyascensioncompanion$heliumOwnsPose = true;
                 return;
             }
 
@@ -78,8 +62,8 @@ public abstract class PlayerForcedPoseCompatMixin {
         }
 
         if (pose == null) {
-            if (heliumOwnsPose) {
-                heliumPoses.remove(playerId);
+            if (antarchyascensioncompanion$heliumOwnsPose) {
+                antarchyascensioncompanion$heliumOwnsPose = false;
                 return;
             }
 
