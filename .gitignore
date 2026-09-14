@@ -34,3 +34,4 @@ repo/
 !**/src/**/repo/
 
 /GIT-DIFF-AND-FILE-CONTENTS-*.txt
+/tools
