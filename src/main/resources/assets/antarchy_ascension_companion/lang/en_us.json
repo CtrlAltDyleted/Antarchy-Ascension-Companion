@@ -8,6 +8,8 @@
   "curios.identifier.filling_fueling_tank": "Filling/Fueling Tank",
   "curios.identifier.engineers_goggles": "Engineer's Goggles",
   "curios.identifier.wireless_terminal": "Wireless Terminal",
+  "curios.modifiers.jetpack": "When worn in Jetpack Slot:",
+  "curios.modifiers.engineers_goggles": "When worn in Engineer's Goggles Slot:",
   "key.ae2.wireless_drive_terminal": "Open Wireless Drive Terminal",
   "key.ae2.wireless_exp_encoding_terminal": "Open Wireless Expanded Pattern Encoding Terminal"
 }

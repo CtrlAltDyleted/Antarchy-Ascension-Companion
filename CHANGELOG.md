@@ -1,5 +1,23 @@
 # Antarchy - Ascension Companion Changelog
 
+## Alpha 0.1.1
+
+### 2026-09-14
+
+#### Changed
+
+- Engineer's Goggles now forward all nonzero head equipment modifiers in their custom Curios slot
+- Jetpacks now forward all nonzero chest equipment modifiers in their custom Curios slot
+- Added dedicated Curios modifier headings for Engineer's Goggles and Jetpacks
+
+#### Fixed
+
+- Added the missing Time in a Bottle Curios slot display name
+
+#### Removed
+
+- Removed the custom AE2 Import Export Card Curios tank bridge because the mod now provides native Curios support
+
 ## Alpha 0.1.0
 
 ### 2026-08-30

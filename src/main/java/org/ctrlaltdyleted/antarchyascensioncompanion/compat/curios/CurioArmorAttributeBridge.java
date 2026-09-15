@@ -6,7 +6,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -23,7 +22,7 @@ public final class CurioArmorAttributeBridge {
         String slotId = event.getSlotContext().identifier();
 
         if (CurioEquipmentHelper.JETPACK_SLOT.equals(slotId)) {
-            addDefensiveEquipmentModifiers(
+            addNonzeroEquipmentModifiers(
                     event,
                     event.getItemStack(),
                     EquipmentSlotGroup.CHEST);
@@ -31,14 +30,14 @@ public final class CurioArmorAttributeBridge {
         }
 
         if (CurioEquipmentHelper.GOGGLES_SLOT.equals(slotId)) {
-            addDefensiveEquipmentModifiers(
+            addNonzeroEquipmentModifiers(
                     event,
                     event.getItemStack(),
                     EquipmentSlotGroup.HEAD);
         }
     }
 
-    private static void addDefensiveEquipmentModifiers(
+    private static void addNonzeroEquipmentModifiers(
             CurioAttributeModifierEvent event,
             ItemStack stack,
             EquipmentSlotGroup equipmentGroup) {
@@ -46,7 +45,7 @@ public final class CurioArmorAttributeBridge {
         stack.forEachModifier(
                 equipmentGroup,
                 (attribute, modifier) -> {
-                    if (!isDefensiveAttribute(attribute)) {
+                    if (modifier.amount() == 0.0D) {
                         return;
                     }
 
@@ -58,12 +57,6 @@ public final class CurioArmorAttributeBridge {
                         event.addModifier(attribute, modifier);
                     }
                 });
-    }
-
-    private static boolean isDefensiveAttribute(Holder<Attribute> attribute) {
-        return attribute.equals(Attributes.ARMOR)
-                || attribute.equals(Attributes.ARMOR_TOUGHNESS)
-                || attribute.equals(Attributes.KNOCKBACK_RESISTANCE);
     }
 
     private static boolean containsEquivalentModifier(
