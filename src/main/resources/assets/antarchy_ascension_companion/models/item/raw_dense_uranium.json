@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "antarchy_ascension_companion:item/raw_dense_uranium"
-  }
-}

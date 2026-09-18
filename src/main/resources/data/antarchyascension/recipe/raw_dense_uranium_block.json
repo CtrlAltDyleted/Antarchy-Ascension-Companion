@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "RRR",
+    "RRR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "antarchyascension:raw_dense_uranium"
+    }
+  },
+  "result": {
+    "id": "antarchyascension:raw_dense_uranium_block",
+    "count": 1
+  }
+}

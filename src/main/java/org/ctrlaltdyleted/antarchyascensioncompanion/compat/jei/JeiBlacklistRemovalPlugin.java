@@ -12,11 +12,13 @@ import mezz.jei.api.runtime.IIngredientManager;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.resources.ResourceLocation;
 
+import static org.ctrlaltdyleted.antarchyascensioncompanion.AntarchyAscensionCompanion.MODID;
+
 @JeiPlugin
 public final class JeiBlacklistRemovalPlugin implements IModPlugin {
     private static final ResourceLocation PLUGIN_ID =
             ResourceLocation.fromNamespaceAndPath(
-                    "antarchy_ascension_companion",
+                    MODID,
                     "jei_blacklist_removal");
 
     @Override

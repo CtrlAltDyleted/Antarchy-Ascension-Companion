@@ -1,5 +1,19 @@
 # Antarchy - Ascension Companion Changelog
 
+## Alpha 0.1.2
+
+### 2026-09-17
+
+#### Changed
+
+- Renamed the Companion runtime mod ID from `antarchy_ascension_companion` to `antarchyascension`
+
+- Renamed the displayed mod name from `Antarchy - Ascension Companion` to `Antarchy - Ascension`
+
+- Migrated Companion-owned items, blocks, recipes, loot tables, tags, models, textures, Curios data, JEI integration, and other resources to the `antarchyascension` namespace
+
+- Updated NeoForge from 21.1.248 to 21.1.250
+
 ## Alpha 0.1.1
 
 ### 2026-09-14

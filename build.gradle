@@ -43,7 +43,7 @@ repositories {
 }
 
 base {
-    archivesName = mod_id
+    archivesName = 'antarchy_ascension_companion'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)

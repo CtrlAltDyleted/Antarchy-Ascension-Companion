@@ -21,11 +21,13 @@ import tamaized.ae2jeiintegration.api.integrations.jei.IngredientConverters;
 
 import java.util.List;
 
+import static org.ctrlaltdyleted.antarchyascensioncompanion.AntarchyAscensionCompanion.MODID;
+
 @JeiPlugin
 public final class AppliedFluxFeJeiPlugin implements IModPlugin {
     private static final ResourceLocation PLUGIN_ID =
         ResourceLocation.fromNamespaceAndPath(
-            "antarchy_ascension_companion",
+            MODID,
             "applied_flux_fe"
         );
 
@@ -40,7 +42,7 @@ public final class AppliedFluxFeJeiPlugin implements IModPlugin {
 
             @Override
             public String getUid() {
-                return "antarchy_ascension_companion:forge_energy";
+                return MODID + ":forge_energy";
             }
         };
 

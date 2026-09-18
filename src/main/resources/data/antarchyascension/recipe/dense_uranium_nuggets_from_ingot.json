@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "antarchyascension:dense_uranium_ingot"
+    }
+  ],
+  "result": {
+    "id": "antarchyascension:dense_uranium_nugget",
+    "count": 9
+  }
+}
