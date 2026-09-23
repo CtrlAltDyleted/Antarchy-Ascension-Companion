@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.antarchyascensioncompanion.mixin.compat.tectonic;
+package org.ctrlaltdyleted.antarchyascension.mixin.compat.tectonic;
 
 import net.minecraft.server.packs.AbstractPackResources;
 import net.minecraft.server.packs.PackLocationInfo;
@@ -15,7 +15,7 @@ public abstract class TectonicFabricOverlayMetadataCompatMixin {
     public abstract PackLocationInfo location();
 
     @Inject(method = "getMetadataSection", at = @At("HEAD"), cancellable = true)
-    private <T> void antarchyascensioncompanion$skipTectonicFabricOverlays(
+    private <T> void antarchyascension$skipTectonicFabricOverlays(
         MetadataSectionSerializer<T> serializer,
         CallbackInfoReturnable<T> cir
     ) {

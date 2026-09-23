@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.antarchyascensioncompanion.mixin.compat.biolith;
+package org.ctrlaltdyleted.antarchyascension.mixin.compat.biolith;
 
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
@@ -25,7 +25,7 @@ public abstract class BiolithUnsupportedMultiNoiseBypassMixin {
         cancellable = true,
         order = 900
     )
-    private void antarchyascensioncompanion$bypassUnsupportedBiolithLookup(
+    private void antarchyascension$bypassUnsupportedBiolithLookup(
         int x,
         int y,
         int z,
@@ -34,7 +34,7 @@ public abstract class BiolithUnsupportedMultiNoiseBypassMixin {
     ) {
         ResourceKey<DimensionType> dimensionType =
             ((BiolithDimensionTypeAccessor) (Object) this)
-                .antarchyascensioncompanion$getBiolithDimensionType();
+                .antarchyascension$getBiolithDimensionType();
 
         if (BuiltinDimensionTypes.OVERWORLD.equals(dimensionType)
             || BuiltinDimensionTypes.NETHER.equals(dimensionType)) {

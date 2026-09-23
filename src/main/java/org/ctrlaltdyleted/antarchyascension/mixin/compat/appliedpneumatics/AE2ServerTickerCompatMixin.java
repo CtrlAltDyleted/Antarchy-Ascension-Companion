@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.antarchyascensioncompanion.mixin.compat.appliedpneumatics;
+package org.ctrlaltdyleted.antarchyascension.mixin.compat.appliedpneumatics;
 
 import appeng.block.AEBaseEntityBlock;
 import appeng.blockentity.ServerTickingBlockEntity;
@@ -15,12 +15,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AEBaseEntityBlock.class)
-public abstract class AppliedPneumaticsAmadronTickerCompatMixin {
-    @Inject(
-            method = "getTicker",
-            at = @At("RETURN"),
-            cancellable = true)
-    private <T extends BlockEntity> void antarchyascensioncompanion$restoreAmadronServerTicker(
+public abstract class AE2ServerTickerCompatMixin {
+    @Inject(method = "getTicker", at = @At("RETURN"), cancellable = true)
+    private <T extends BlockEntity> void antarchyascension$restoreServerTicker(
             Level level,
             BlockState state,
             BlockEntityType<T> type,
@@ -30,16 +27,13 @@ public abstract class AppliedPneumaticsAmadronTickerCompatMixin {
             return;
         }
 
-        if (!this.getClass().getName().equals(
-                "com.wintercogs.appliedpneumatics.common.blocks.MEAmadronProcessStation")) {
-            return;
-        }
-
-        cir.setReturnValue(
-                (tickLevel, pos, tickState, blockEntity) -> {
-                    if (blockEntity instanceof ServerTickingBlockEntity ticking) {
-                        ticking.serverTick();
-                    }
-                });
+        BlockEntityTicker<T> originalTicker = cir.getReturnValue();
+        cir.setReturnValue((tickLevel, pos, tickState, blockEntity) -> {
+            if (blockEntity instanceof ServerTickingBlockEntity ticking) {
+                ticking.serverTick();
+            } else if (originalTicker != null) {
+                originalTicker.tick(tickLevel, pos, tickState, blockEntity);
+            }
+        });
     }
 }

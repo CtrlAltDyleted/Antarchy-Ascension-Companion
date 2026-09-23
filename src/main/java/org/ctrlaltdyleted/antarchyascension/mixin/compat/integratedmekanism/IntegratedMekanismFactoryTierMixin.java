@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.antarchyascensioncompanion.mixin.compat.integratedmekanism;
+package org.ctrlaltdyleted.antarchyascension.mixin.compat.integratedmekanism;
 
 import java.lang.reflect.Array;
 
@@ -25,7 +25,7 @@ public abstract class IntegratedMekanismFactoryTierMixin {
             require = 0,
             remap = false
     )
-    private static Object[] antarchyascensioncompanion$useBaseFactoryTiers() {
+    private static Object[] antarchyascension$useBaseFactoryTiers() {
         try {
             Class<?> tierClass = Class.forName("mekanism.common.tier.FactoryTier");
             Object[] values = (Object[]) tierClass.getMethod("values").invoke(null);

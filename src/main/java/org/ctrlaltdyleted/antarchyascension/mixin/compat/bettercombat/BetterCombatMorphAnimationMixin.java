@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.antarchyascensioncompanion.mixin.compat.bettercombat;
+package org.ctrlaltdyleted.antarchyascension.mixin.compat.bettercombat;
 
 import com.craisinlord.morph.api.MorphApi;
 import net.bettercombat.client.animation.PlayerAttackAnimatable;
@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = AbstractClientPlayer.class, priority = 900)
 public abstract class BetterCombatMorphAnimationMixin {
     @Unique
-    private boolean antarchyascensioncompanion$wasNonPlayerMorph;
+    private boolean antarchyascension$wasNonPlayerMorph;
 
     @Dynamic("Added to AbstractClientPlayer by Better Combat")
     @Inject(
@@ -25,14 +25,14 @@ public abstract class BetterCombatMorphAnimationMixin {
         cancellable = true,
         remap = false
     )
-    private void antarchyascensioncompanion$suppressAttackAnimationWhileMorphed(
+    private void antarchyascension$suppressAttackAnimationWhileMorphed(
         String animation,
         AnimatedHand hand,
         float length,
         float upswing,
         CallbackInfo ci
     ) {
-        if (antarchyascensioncompanion$isNonPlayerMorph()) {
+        if (antarchyascension$isNonPlayerMorph()) {
             ci.cancel();
         }
     }
@@ -43,21 +43,21 @@ public abstract class BetterCombatMorphAnimationMixin {
         at = @At("HEAD"),
         remap = false
     )
-    private void antarchyascensioncompanion$stopRunningAttackAnimationOnMorph(
+    private void antarchyascension$stopRunningAttackAnimationOnMorph(
         CallbackInfo ci
     ) {
-        boolean morphed = antarchyascensioncompanion$isNonPlayerMorph();
+        boolean morphed = antarchyascension$isNonPlayerMorph();
 
-        if (morphed && !antarchyascensioncompanion$wasNonPlayerMorph) {
+        if (morphed && !antarchyascension$wasNonPlayerMorph) {
             ((PlayerAttackAnimatable) (Object) this)
                 .stopAttackAnimation(0.0F);
         }
 
-        antarchyascensioncompanion$wasNonPlayerMorph = morphed;
+        antarchyascension$wasNonPlayerMorph = morphed;
     }
 
     @Unique
-    private boolean antarchyascensioncompanion$isNonPlayerMorph() {
+    private boolean antarchyascension$isNonPlayerMorph() {
         Player player = (Player) (Object) this;
 
         LivingEntity activeMorph =

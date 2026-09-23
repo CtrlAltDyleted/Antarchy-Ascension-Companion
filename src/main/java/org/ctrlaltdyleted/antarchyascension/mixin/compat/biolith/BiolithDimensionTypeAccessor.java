@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.antarchyascensioncompanion.mixin.compat.biolith;
+package org.ctrlaltdyleted.antarchyascension.mixin.compat.biolith;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.BiomeSource;
@@ -12,5 +12,5 @@ public interface BiolithDimensionTypeAccessor {
 
     @Dynamic("Added to BiomeSource by Biolith MixinBiomeSource")
     @Accessor(value = "biolith$dimensionType", remap = false)
-    ResourceKey<DimensionType> antarchyascensioncompanion$getBiolithDimensionType();
+    ResourceKey<DimensionType> antarchyascension$getBiolithDimensionType();
 }
