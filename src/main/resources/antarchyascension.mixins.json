@@ -1,9 +1,11 @@
 {
   "required": true,
-  "package": "org.ctrlaltdyleted.antarchyascensioncompanion.mixin",
+  "package": "org.ctrlaltdyleted.antarchyascension.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "compat.appliedpneumatics.AppliedPneumaticsAmadronTickerCompatMixin",
+    "compat.appliedpneumatics.AE2ServerTickerCompatMixin",
+    "compat.nep.NepImportCardRegistrationMixin",
+    "compat.nep.NepImportUpgradeSlotMixin",
     "compat.appliedsticks.AppliedSticksServerEventsMixin",
     "PlayerForcedPoseCompatMixin",
     "compat.createsa.CreateSaFlyingProcedureMixin",
@@ -16,11 +18,16 @@
     "compat.luckyblock.LuckyBlockNeoForgeClientInitMixin",
     "compat.tectonic.TectonicFabricOverlayMetadataCompatMixin",
     "compat.deimos.DeimosGeneratedRecipeStackSizeMixin",
+    "compat.endrem.AncientPortalFrameEmptyEyeMixin",
+    "compat.endrem.EndRemEyeInsertionMixin",
     "compat.biolith.BiolithDimensionTypeAccessor",
     "compat.biolith.BiolithUnsupportedMultiNoiseBypassMixin"
   ],
   "client": [
     "compat.smithingtemplateviewer.SmithingTemplateViewerMixin",
+    "compat.ae2helpers.ScreenStyleWidgetsAccessor",
+    "compat.ae2helpers.PatternProviderUpgradePanelLayoutMixin",
+    "compat.ae2helpers.CraftConfirmCancelWatcherMixin",
     "compat.bettercombat.BetterCombatMorphAnimationMixin"
   ],
   "injectors": {
