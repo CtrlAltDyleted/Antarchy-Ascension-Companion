@@ -1,18 +1,36 @@
 # Antarchy - Ascension Companion Changelog
 
-## Alpha 0.1.2
+## 0.2.0-alpha
 
-### 2026-09-17
+### 2026-09-23
 
 #### Changed
 
-- Renamed the Companion runtime mod ID from `antarchy_ascension_companion` to `antarchyascension`
+- Standardized the runtime mod ID as `antarchyascension`
+
+- Standardized the Java package and Mixin member prefix as `antarchyascension`
 
 - Renamed the displayed mod name from `Antarchy - Ascension Companion` to `Antarchy - Ascension`
 
 - Migrated Companion-owned items, blocks, recipes, loot tables, tags, models, textures, Curios data, JEI integration, and other resources to the `antarchyascension` namespace
 
+- Added JEI recognition for the Ars Technica Arcane Wrench variant of Create's wrench
+
+- Removed legacy registry aliases for the old Companion namespace as part of the alpha clean break
+
 - Updated NeoForge from 21.1.248 to 21.1.250
+
+#### Fixed
+
+- Fixed End Remastered ancient portal frames showing eyes in empty frames and accepting duplicate eyes
+
+- Removed the disabled Not Enough Patterns Import Card from compatible provider upgrades and its upgrade slot
+
+- Fixed AE2 Helpers automatic recipe item insertion continuing after a crafting request is cancelled
+
+- Moved the AE2 Helpers Pattern Provider upgrade panel to a separate row to prevent overlapping slots
+
+- Restored AE2 machine ticking with Time in a Bottle Entity Fix
 
 ## Alpha 0.1.1
 
@@ -30,7 +48,7 @@
 
 #### Removed
 
-- Removed the custom AE2 Import Export Card Curios tank bridge because the mod now provides native Curios support
+- Removed the custom AE2 Import Export Card Curios tank bridge because the mod now provides native Curios support (yippee)
 
 ## Alpha 0.1.0
 
