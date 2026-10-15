@@ -18,7 +18,7 @@
     "milestone": {
       "trigger": "minecraft:recipe_crafted",
       "conditions": {
-        "recipe_id": "antarchyascension:skybound_sigil",
+        "recipe_id": "antarchyascension:progression/sigils/skybound_sigil",
         "player": {
           "type_specific": {
             "type": "minecraft:player",

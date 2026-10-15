@@ -1,0 +1,36 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": false,
+  "category": "misc",
+  "pattern": [
+    "SHCHS",
+    "HPRPH",
+    "CRIRC",
+    "HPRPH",
+    "SHCHS"
+  ],
+  "key": {
+    "S": {
+      "item": "create:sturdy_sheet"
+    },
+    "H": {
+      "item": "immersiveengineering:heavy_engineering"
+    },
+    "C": {
+      "item": "create:brass_casing"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    },
+    "R": {
+      "item": "immersiveengineering:radiator"
+    },
+    "I": {
+      "item": "antarchyascension:industrial_core"
+    }
+  },
+  "result": {
+    "id": "antarchyascension:keystone_of_industry",
+    "count": 1
+  }
+}

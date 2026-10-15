@@ -1,0 +1,42 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "input": {
+    "basePredicate": {
+      "tag": "c:storage_blocks/steel"
+    },
+    "count": 4
+  },
+  "additives": [
+    {
+      "basePredicate": {
+        "item": "create:sturdy_sheet"
+      },
+      "count": 4
+    },
+    {
+      "basePredicate": {
+        "item": "immersiveengineering:component_steel"
+      },
+      "count": 4
+    },
+    {
+      "basePredicate": {
+        "tag": "c:ingots/electrum"
+      },
+      "count": 4
+    },
+    {
+      "basePredicate": {
+        "tag": "c:ingots/brass"
+      },
+      "count": 4
+    }
+  ],
+  "results": [
+    {
+      "id": "antarchyascension:industrial_core"
+    }
+  ],
+  "time": 1200,
+  "energy": 614400
+}

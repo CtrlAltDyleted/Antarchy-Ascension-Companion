@@ -1,15 +1,15 @@
 {
   "apparatus": {
-    "antarchyascension:skybound_sigil": [
+    "antarchyascension:progression/sigils/skybound_sigil": [
       "antarchyascension:progression/naga",
       "antarchyascension:progression/first_steel",
       "antarchyascension:progression/slider"
     ],
-    "antarchyascension:grounded_sigil": [
+    "antarchyascension:progression/sigils/grounded_sigil": [
       "antarchyascension:progression/lich",
       "antarchyascension:progression/mekanism_online"
     ],
-    "antarchyascension:nether_crystal_seed": [
+    "antarchyascension:progression/nether/nether_crystal_seed": [
       "antarchyascension:progression/alpha_yeti"
     ]
   },

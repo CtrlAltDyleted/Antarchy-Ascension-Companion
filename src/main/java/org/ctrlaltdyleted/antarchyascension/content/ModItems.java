@@ -40,6 +40,9 @@ public final class ModItems {
 
     public static final DeferredItem<Item> CRAFTING_CIRCUIT = ITEMS.registerSimpleItem("crafting_circuit");
 
+    public static final DeferredItem<Item> INDUSTRIAL_CORE = ITEMS.registerSimpleItem("industrial_core");
+    public static final DeferredItem<Item> KEYSTONE_OF_INDUSTRY = ITEMS.registerSimpleItem("keystone_of_industry", new Item.Properties().stacksTo(1));
+
     public static final DeferredItem<Item> PACK_EMBLEM = ITEMS.registerSimpleItem("pack_emblem");
 
     private ModItems() {

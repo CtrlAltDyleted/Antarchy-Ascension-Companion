@@ -119,7 +119,14 @@ public abstract class ApparatusProgressionMixin {
     private void antarchyascension$load(CompoundTag tag, HolderLookup.Provider registries, CallbackInfo ci) {
         if (tag.hasUUID("antarchyascension_crafter")) {
             antarchyascension$crafter = tag.getUUID("antarchyascension_crafter");
-            antarchyascension$recipe = ResourceLocation.tryParse(tag.getString("antarchyascension_recipe"));
+            // Preserve pending ritual credit saved before the recipe-directory migration.
+            String savedRecipe = tag.getString("antarchyascension_recipe");
+            antarchyascension$recipe = ResourceLocation.tryParse(switch (savedRecipe) {
+                case "antarchyascension:skybound_sigil" -> "antarchyascension:progression/sigils/skybound_sigil";
+                case "antarchyascension:grounded_sigil" -> "antarchyascension:progression/sigils/grounded_sigil";
+                case "antarchyascension:nether_crystal_seed" -> "antarchyascension:progression/nether/nether_crystal_seed";
+                default -> savedRecipe;
+            });
             antarchyascension$completed = tag.getBoolean("antarchyascension_completed");
         }
     }

@@ -28,5 +28,7 @@
   "message.antarchyascension.progression_required": "Complete the required progression before starting this ritual.",
   "item.antarchyascension.skybound_key": "Skybound Key",
   "item.antarchyascension.frozen_exanimate_essence": "Frozen Exanimate Essence",
-  "message.antarchyascension.craft_own_seal": "You must craft your own Seal of the Underworld before using it."
+  "message.antarchyascension.craft_own_seal": "You must craft your own Seal of the Underworld before using it.",
+  "item.antarchyascension.industrial_core": "Industrial Core",
+  "item.antarchyascension.keystone_of_industry": "Keystone of Industry"
 }
