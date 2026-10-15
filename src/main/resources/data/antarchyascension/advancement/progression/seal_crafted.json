@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "nether_remastered:seal_of_the_underworld_item"
+    },
+    "title": {
+      "text": "Your Seal of the Underworld"
+    },
+    "description": {
+      "text": "Craft your own Seal from the four fragments, Nether Crystal, and bottled essence."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "milestone": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "nether_remastered:sotu_recipe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "milestone"
+    ]
+  ],
+  "parent": "antarchyascension:progression/nether_crystal"
+}

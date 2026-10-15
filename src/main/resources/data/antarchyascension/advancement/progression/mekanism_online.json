@@ -1,0 +1,68 @@
+{
+  "display": {
+    "icon": {
+      "id": "mekanism:metallurgic_infuser"
+    },
+    "title": {
+      "text": "Mekanism Foundations"
+    },
+    "description": {
+      "text": "After preparing power, obtain a Metallurgic Infuser and Basic Control Circuit."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "component_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "type_specific": {
+            "type": "minecraft:player",
+            "advancements": {
+              "antarchyascension:progression/first_power": true
+            }
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "mekanism:metallurgic_infuser"
+            ]
+          }
+        ]
+      }
+    },
+    "component_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "type_specific": {
+            "type": "minecraft:player",
+            "advancements": {
+              "antarchyascension:progression/first_power": true
+            }
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "mekanism:basic_control_circuit"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "component_1"
+    ],
+    [
+      "component_2"
+    ]
+  ],
+  "parent": "antarchyascension:progression/first_power"
+}

@@ -1,6 +1,7 @@
 package org.ctrlaltdyleted.antarchyascension.content;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -23,6 +24,15 @@ public final class ModBlocks {
                     .strength(5.0F, 6.0F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> SILICA_GLASS = BLOCKS.register(
+            "silica_glass",
+            () -> new TransparentBlock(BlockBehaviour.Properties.of()
+                    .strength(0.5F).sound(SoundType.GLASS).noOcclusion()));
+    public static final DeferredBlock<Block> REINFORCED_SILICA_GLASS = BLOCKS.register(
+            "reinforced_silica_glass",
+            () -> new TransparentBlock(BlockBehaviour.Properties.of()
+                    .strength(1.5F, 6.0F).sound(SoundType.GLASS).noOcclusion()));
 
     private ModBlocks() {
     }

@@ -14,7 +14,7 @@ This mod's purpose is to provide pack-specific:
 | Component   | Version  |
 |-------------|----------|
 | Minecraft   | 1.21.1   |
-| NeoForge    | 21.1.248 |
+| NeoForge    | 21.1.256 |
 | Java        | 21       |
 
 ## Status

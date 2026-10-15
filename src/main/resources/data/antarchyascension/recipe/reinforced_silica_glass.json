@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "S S",
+    "SGS",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "alltheores:steel_plate"
+    },
+    "G": {
+      "item": "antarchyascension:silica_glass"
+    }
+  },
+  "result": {
+    "id": "antarchyascension:reinforced_silica_glass",
+    "count": 2
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "mekanism:metallurgic_infusing",
+  "chemical_input": {
+    "amount": 20,
+    "tag": "mekanism:carbon"
+  },
+  "item_input": {
+    "count": 1,
+    "item": "antarchyascension:silica_compound"
+  },
+  "output": {
+    "count": 1,
+    "id": "antarchyascension:crude_silicon"
+  },
+  "per_tick_usage": false
+}

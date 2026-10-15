@@ -1,0 +1,38 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "keepNbtOfReagent": false,
+  "reagent": {
+    "item": "twilightforest:naga_scale"
+  },
+  "pedestalItems": [
+    {
+      "tag": "c:plates/steel"
+    },
+    {
+      "tag": "c:plates/steel"
+    },
+    {
+      "item": "antarchyascension:skybound_key"
+    },
+    {
+      "item": "aether:zanite_gemstone"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    }
+  ],
+  "result": {
+    "id": "antarchyascension:skybound_sigil",
+    "count": 1
+  },
+  "sourceCost": 3000
+}

@@ -91,7 +91,8 @@ configurations {
 }
 
 dependencies {
-    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+    compileOnly "curse.maven:create-328085:7963363"
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
     runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
 }
 

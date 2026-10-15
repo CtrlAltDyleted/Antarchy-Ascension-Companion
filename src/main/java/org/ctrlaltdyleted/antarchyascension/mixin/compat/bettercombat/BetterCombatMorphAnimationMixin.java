@@ -23,7 +23,8 @@ public abstract class BetterCombatMorphAnimationMixin {
         method = "playAttackAnimation(Ljava/lang/String;Lnet/bettercombat/logic/AnimatedHand;FF)V",
         at = @At("HEAD"),
         cancellable = true,
-        remap = false
+        remap = false,
+        require = 0
     )
     private void antarchyascension$suppressAttackAnimationWhileMorphed(
         String animation,
@@ -41,7 +42,8 @@ public abstract class BetterCombatMorphAnimationMixin {
     @Inject(
         method = "updateAnimationsOnTick()V",
         at = @At("HEAD"),
-        remap = false
+        remap = false,
+        require = 0
     )
     private void antarchyascension$stopRunningAttackAnimationOnMorph(
         CallbackInfo ci

@@ -1,0 +1,52 @@
+{
+  "display": {
+    "icon": {
+      "id": "nether_remastered:seal_piece_4"
+    },
+    "title": {
+      "text": "Four Fragments"
+    },
+    "description": {
+      "text": "Hold all four Seal Pieces in your inventory."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "milestone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nether_remastered:seal_piece_1"
+            ]
+          },
+          {
+            "items": [
+              "nether_remastered:seal_piece_2"
+            ]
+          },
+          {
+            "items": [
+              "nether_remastered:seal_piece_3"
+            ]
+          },
+          {
+            "items": [
+              "nether_remastered:seal_piece_4"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "milestone"
+    ]
+  ],
+  "parent": "antarchyascension:progression/seal_piece_4"
+}

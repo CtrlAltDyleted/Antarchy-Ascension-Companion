@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "antarchyascension:crude_silicon"
+    }
+  ],
+  "results": [
+    {
+      "id": "antarchyascension:pressed_silicon_substrate"
+    }
+  ]
+}

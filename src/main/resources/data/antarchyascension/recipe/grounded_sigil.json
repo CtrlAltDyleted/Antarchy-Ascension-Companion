@@ -1,0 +1,38 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "keepNbtOfReagent": false,
+  "reagent": {
+    "item": "antarchyascension:frozen_exanimate_essence"
+  },
+  "pedestalItems": [
+    {
+      "item": "mekanism:basic_control_circuit"
+    },
+    {
+      "item": "mekanism:basic_control_circuit"
+    },
+    {
+      "tag": "c:ingots/brass"
+    },
+    {
+      "tag": "c:ingots/brass"
+    },
+    {
+      "item": "ars_nouveau:earth_essence"
+    },
+    {
+      "item": "ars_nouveau:earth_essence"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    }
+  ],
+  "result": {
+    "id": "antarchyascension:grounded_sigil",
+    "count": 1
+  },
+  "sourceCost": 4000
+}

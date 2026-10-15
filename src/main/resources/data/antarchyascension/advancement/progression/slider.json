@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "id": "aether:bronze_dungeon_key"
+    },
+    "title": {
+      "text": "Slider Spoils"
+    },
+    "description": {
+      "text": "Obtain a Bronze Dungeon Key or a Skybound Key from the Slider progression."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "milestone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether:bronze_dungeon_key",
+              "antarchyascension:skybound_key"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "milestone"
+    ]
+  ],
+  "parent": "antarchyascension:progression/ae2_online"
+}

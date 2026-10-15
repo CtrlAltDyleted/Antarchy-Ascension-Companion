@@ -27,11 +27,25 @@ public class AntarchyAscension {
             event.accept(ModItems.DENSE_URANIUM_NUGGET.get());
             event.accept(ModItems.RAW_DENSE_URANIUM.get());
             event.accept(ModItems.DENSE_URANIUM_INGOT.get());
+            event.accept(ModItems.POWDERED_SAND.get());
+            event.accept(ModItems.SILICA_COMPOUND.get());
+            event.accept(ModItems.COMPACTED_SILICA.get());
+            event.accept(ModItems.CRUDE_SILICON.get());
+            event.accept(ModItems.PRESSED_SILICON_SUBSTRATE.get());
+            event.accept(ModItems.CRAFTING_CIRCUIT.get());
+            event.accept(ModItems.SKYBOUND_KEY.get());
+            event.accept(ModItems.FROZEN_EXANIMATE_ESSENCE.get());
+            event.accept(ModItems.SKYBOUND_SIGIL.get());
+            event.accept(ModItems.GROUNDED_SIGIL.get());
+            event.accept(ModItems.NETHER_CRYSTAL_SEED.get());
+            event.accept(ModItems.NETHER_CORE.get());
         }
 
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModItems.RAW_DENSE_URANIUM_BLOCK.get());
             event.accept(ModItems.DENSE_URANIUM_BLOCK.get());
+            event.accept(ModItems.SILICA_GLASS.get());
+            event.accept(ModItems.REINFORCED_SILICA_GLASS.get());
         }
     }
 }

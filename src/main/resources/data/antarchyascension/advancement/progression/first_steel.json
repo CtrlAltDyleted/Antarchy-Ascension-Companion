@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "immersiveengineering:ingot_steel"
+    },
+    "title": {
+      "text": "Making Steel"
+    },
+    "description": {
+      "text": "Obtain a steel ingot for machinery and sigil crafting."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "milestone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/steel"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "milestone"
+    ]
+  ],
+  "parent": "antarchyascension:progression/root"
+}

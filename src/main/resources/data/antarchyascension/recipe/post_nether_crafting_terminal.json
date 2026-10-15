@@ -1,0 +1,34 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "category": "misc",
+  "pattern": [
+    "QEQ",
+    "SXS",
+    "RTR"
+  ],
+  "key": {
+    "X": {
+      "item": "antarchyascension:crafting_circuit"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "E": {
+      "item": "create:electron_tube"
+    },
+    "S": {
+      "tag": "c:plates/steel"
+    },
+    "T": {
+      "item": "ae2:terminal"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "ae2:crafting_terminal",
+    "count": 1
+  }
+}

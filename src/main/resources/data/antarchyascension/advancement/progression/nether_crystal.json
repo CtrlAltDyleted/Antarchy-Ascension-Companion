@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "nether_remastered:seal_crystal"
+    },
+    "title": {
+      "text": "Nether Crystal"
+    },
+    "description": {
+      "text": "Obtain a Nether Crystal by infusing a Nether Core with 20 mB of refined obsidian."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "milestone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nether_remastered:seal_crystal"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "milestone"
+    ]
+  ],
+  "parent": "antarchyascension:progression/alpha_yeti"
+}

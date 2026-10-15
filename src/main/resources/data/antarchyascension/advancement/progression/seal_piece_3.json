@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "nether_remastered:seal_piece_3"
+    },
+    "title": {
+      "text": "The Third Fragment"
+    },
+    "description": {
+      "text": "Obtain the Lich Seal Piece."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "milestone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nether_remastered:seal_piece_3"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "milestone"
+    ]
+  ],
+  "parent": "antarchyascension:progression/lich"
+}

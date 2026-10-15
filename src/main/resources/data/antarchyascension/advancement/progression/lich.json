@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "id": "twilightforest:lich_trophy"
+    },
+    "title": {
+      "text": "Lich Spoils"
+    },
+    "description": {
+      "text": "Obtain a Lich Trophy or the third Seal Piece. Tower essence alone does not count."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "milestone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "twilightforest:lich_trophy",
+              "nether_remastered:seal_piece_3"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "milestone"
+    ]
+  ],
+  "parent": "antarchyascension:progression/skybound"
+}

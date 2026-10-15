@@ -20,6 +20,8 @@ public abstract class NepImportUpgradeSlotMixin {
         Slot slot, SlotSemantic semantic, CallbackInfoReturnable<Slot> cir
     ) {
         if ((Object) this instanceof PatternProviderMenu && semantic.id().equals("nep:import_upgrade")) {
+            // NEP only retains this Slot reference; registering it with the menu would change
+            // the slot ownership/layout behavior this compatibility path is avoiding.
             cir.setReturnValue(slot);
         }
     }

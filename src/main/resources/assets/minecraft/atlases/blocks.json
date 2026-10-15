@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "antarchyascension:item/skybound_sigil",
+      "sprite": "antarchyascension:item/skybound_sigil"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "antarchyascension:item/grounded_sigil",
+      "sprite": "antarchyascension:item/grounded_sigil"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "antarchyascension:item/nether_crystal_seed",
+      "sprite": "antarchyascension:item/nether_crystal_seed"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "antarchyascension:item/nether_core",
+      "sprite": "antarchyascension:item/nether_core"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "antarchyascension:item/skybound_key",
+      "sprite": "antarchyascension:item/skybound_key"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "antarchyascension:item/frozen_exanimate_essence",
+      "sprite": "antarchyascension:item/frozen_exanimate_essence"
+    }
+  ]
+}

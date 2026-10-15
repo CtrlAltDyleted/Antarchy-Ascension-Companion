@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:netherrack"
+    },
+    "title": {
+      "text": "Into the Nether"
+    },
+    "description": {
+      "text": "Enter the Nether after unlocking personal access."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "milestone": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "minecraft:the_nether",
+        "player": {
+          "type_specific": {
+            "type": "minecraft:player",
+            "advancements": {
+              "nether_remastered:seal_of_the_underworld": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "milestone"
+    ]
+  ],
+  "parent": "antarchyascension:progression/nether_unlocked"
+}

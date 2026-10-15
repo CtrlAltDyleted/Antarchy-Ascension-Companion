@@ -1,0 +1,82 @@
+{
+  "display": {
+    "icon": {
+      "id": "immersiveengineering:dynamo"
+    },
+    "title": {
+      "text": "Your First Power Grid"
+    },
+    "description": {
+      "text": "Gather a Kinetic Dynamo, LV Accumulator, LV Connector, and copper wire."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "component_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "immersiveengineering:dynamo"
+            ]
+          }
+        ]
+      }
+    },
+    "component_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "immersiveengineering:capacitor_lv"
+            ]
+          }
+        ]
+      }
+    },
+    "component_3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "immersiveengineering:connector_lv"
+            ]
+          }
+        ]
+      }
+    },
+    "component_4": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "immersiveengineering:wirecoil_copper"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "component_1"
+    ],
+    [
+      "component_2"
+    ],
+    [
+      "component_3"
+    ],
+    [
+      "component_4"
+    ]
+  ],
+  "parent": "antarchyascension:progression/first_steel"
+}

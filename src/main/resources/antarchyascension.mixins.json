@@ -2,7 +2,11 @@
   "required": true,
   "package": "org.ctrlaltdyleted.antarchyascension.mixin",
   "compatibilityLevel": "JAVA_21",
+  "plugin": "org.ctrlaltdyleted.antarchyascension.mixin.compat.biolith.BiolithMixinPlugin",
   "mixins": [
+    "compat.ae2.MeteoriteBlockPutterMixin",
+    "compat.ae2.MeteoritePlacerMixin",
+    "compat.ae2.MeteoriteStructurePieceMixin",
     "compat.appliedpneumatics.AE2ServerTickerCompatMixin",
     "compat.nep.NepImportCardRegistrationMixin",
     "compat.nep.NepImportUpgradeSlotMixin",
@@ -16,15 +20,18 @@
     "compat.neoforge.SimpleTierNullRepairIngredientMixin",
     "compat.quark.QuarkMobCategoryMixin",
     "compat.luckyblock.LuckyBlockNeoForgeClientInitMixin",
-    "compat.tectonic.TectonicFabricOverlayMetadataCompatMixin",
     "compat.deimos.DeimosGeneratedRecipeStackSizeMixin",
     "compat.endrem.AncientPortalFrameEmptyEyeMixin",
     "compat.endrem.EndRemEyeInsertionMixin",
     "compat.biolith.BiolithDimensionTypeAccessor",
-    "compat.biolith.BiolithUnsupportedMultiNoiseBypassMixin"
+    "compat.biolith.BiolithUnsupportedMultiNoiseBypassMixin",
+    "compat.curios.CuriosSpecificSlotQuickMoveMixin",
+    "compat.curios.CuriosGenericExclusionsMixin",
+    "compat.arsnouveau.ApparatusProgressionMixin",
+    "compat.zps.CreateScriptCommandsMixin",
+    "compat.immersiveengineering.BlastFurnacePreheaterSpeedMixin"
   ],
   "client": [
-    "compat.smithingtemplateviewer.SmithingTemplateViewerMixin",
     "compat.ae2helpers.ScreenStyleWidgetsAccessor",
     "compat.ae2helpers.PatternProviderUpgradePanelLayoutMixin",
     "compat.ae2helpers.CraftConfirmCancelWatcherMixin",

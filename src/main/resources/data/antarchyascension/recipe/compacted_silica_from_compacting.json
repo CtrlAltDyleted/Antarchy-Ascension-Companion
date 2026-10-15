@@ -1,0 +1,22 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "antarchyascension:silica_compound"
+    },
+    {
+      "item": "antarchyascension:silica_compound"
+    },
+    {
+      "item": "antarchyascension:silica_compound"
+    },
+    {
+      "item": "antarchyascension:silica_compound"
+    }
+  ],
+  "results": [
+    {
+      "id": "antarchyascension:compacted_silica"
+    }
+  ]
+}

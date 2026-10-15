@@ -1,0 +1,13 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_misc",
+  "cookingtime": 500,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "aether:bronze_dungeon_key"
+  },
+  "result": {
+    "id": "antarchyascension:skybound_key",
+    "count": 1
+  }
+}

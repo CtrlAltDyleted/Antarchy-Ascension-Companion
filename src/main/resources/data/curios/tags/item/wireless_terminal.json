@@ -7,6 +7,9 @@
     "ae2wtlib:wireless_pattern_encoding_terminal",
     "ae2wtlib:wireless_universal_terminal",
     "advanced_ae:wireless_quantum_crafter_terminal",
-    "ae2driveterminal:wireless_drive_terminal"
+    "ae2driveterminal:wireless_drive_terminal",
+    "ae2labeledpatterns:wireless_labeled_pattern_access_terminal",
+    "extendedae:wireless_ex_pat",
+    "ae2cs:wireless_resonant_terminal"
   ]
 }

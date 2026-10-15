@@ -5,7 +5,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.WeakHashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.ctrlaltdyleted.antarchyascension.AntarchyAscension;
 import org.ctrlaltdyleted.antarchyascension.compat.curios.CurioEquipmentHelper;
@@ -49,6 +51,15 @@ public final class CreateSaJetpackRenderHooks {
 
     private static final Map<String, ArmorModelInvoker> ARMOR_MODELS =
             new HashMap<>();
+
+    private static final Set<String> antarchyascension$loggedFailures =
+            ConcurrentHashMap.newKeySet();
+
+    private static void antarchyascension$logReflectionFailure(String context, Throwable failure) {
+        if (antarchyascension$loggedFailures.add(context)) {
+            AntarchyAscension.LOGGER.warn("Create S&A jetpack rendering failure in {}", context, failure);
+        }
+    }
 
     private CreateSaJetpackRenderHooks() {
     }
@@ -321,7 +332,8 @@ public final class CreateSaJetpackRenderHooks {
 
                 return created;
             }
-            catch (ReflectiveOperationException | LinkageError ignored) {
+            catch (ReflectiveOperationException | LinkageError failure) {
+                antarchyascension$logReflectionFailure("building armor model " + spec.modelClassName(), failure);
                 return null;
             }
         }
@@ -380,7 +392,8 @@ public final class CreateSaJetpackRenderHooks {
 
                 return created;
             }
-            catch (ReflectiveOperationException | LinkageError ignored) {
+            catch (ReflectiveOperationException | LinkageError failure) {
+                antarchyascension$logReflectionFailure("building renderer " + className, failure);
                 return null;
             }
         }
@@ -421,7 +434,8 @@ public final class CreateSaJetpackRenderHooks {
                         netHeadYaw,
                         headPitch);
             }
-            catch (ReflectiveOperationException | LinkageError ignored) {
+            catch (ReflectiveOperationException | LinkageError failure) {
+                antarchyascension$logReflectionFailure("invoking renderer " + renderer.getClass().getName(), failure);
             }
         }
     }
@@ -481,7 +495,8 @@ public final class CreateSaJetpackRenderHooks {
                         OverlayTexture.NO_OVERLAY,
                         0xFFFFFFFF);
             }
-            catch (ReflectiveOperationException | LinkageError ignored) {
+            catch (ReflectiveOperationException | LinkageError failure) {
+                antarchyascension$logReflectionFailure("invoking armor model " + model.getClass().getName(), failure);
             }
         }
     }

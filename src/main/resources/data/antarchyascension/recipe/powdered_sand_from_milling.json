@@ -1,0 +1,14 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "tag": "c:sands"
+    }
+  ],
+  "results": [
+    {
+      "id": "antarchyascension:powdered_sand"
+    }
+  ],
+  "processing_time": 100
+}

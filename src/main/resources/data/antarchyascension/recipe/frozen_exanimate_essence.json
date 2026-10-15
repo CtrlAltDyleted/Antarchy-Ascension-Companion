@@ -1,0 +1,13 @@
+{
+  "type": "aether:freezing",
+  "category": "freezable_misc",
+  "cookingtime": 500,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "twilightforest:exanimate_essence"
+  },
+  "result": {
+    "id": "antarchyascension:frozen_exanimate_essence",
+    "count": 1
+  }
+}

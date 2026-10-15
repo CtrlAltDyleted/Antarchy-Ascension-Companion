@@ -1,0 +1,38 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "keepNbtOfReagent": false,
+  "reagent": {
+    "item": "twilightforest:alpha_yeti_fur"
+  },
+  "pedestalItems": [
+    {
+      "item": "nether_remastered:bottled_nether_essence"
+    },
+    {
+      "item": "nether_remastered:bottled_nether_essence"
+    },
+    {
+      "item": "create:polished_rose_quartz"
+    },
+    {
+      "item": "create:polished_rose_quartz"
+    },
+    {
+      "item": "create:brass_sheet"
+    },
+    {
+      "item": "create:brass_sheet"
+    },
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "item": "minecraft:obsidian"
+    }
+  ],
+  "result": {
+    "id": "antarchyascension:nether_crystal_seed",
+    "count": 1
+  },
+  "sourceCost": 2500
+}

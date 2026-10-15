@@ -1,0 +1,21 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "antarchyascension:powdered_sand"
+    },
+    {
+      "item": "antarchyascension:powdered_sand"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    }
+  ],
+  "results": [
+    {
+      "id": "antarchyascension:silica_compound",
+      "count": 2
+    }
+  ],
+  "heat_requirement": "heated"
+}

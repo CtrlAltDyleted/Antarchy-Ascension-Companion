@@ -1,0 +1,28 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "category": "misc",
+  "pattern": [
+    "SGS",
+    "R R",
+    "SCS"
+  ],
+  "key": {
+    "S": {
+      "item": "alltheores:steel_plate"
+    },
+    "G": {
+      "item": "antarchyascension:silica_glass"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "id": "ae2:item_cell_housing",
+    "count": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "id": "antarchyascension:skybound_sigil"
+    },
+    "title": {
+      "text": "Skybound Sigil"
+    },
+    "description": {
+      "text": "Craft your Skybound Sigil in the Enchanting Apparatus to unlock Lich access."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "milestone": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "antarchyascension:skybound_sigil",
+        "player": {
+          "type_specific": {
+            "type": "minecraft:player",
+            "advancements": {
+              "antarchyascension:progression/naga": true,
+              "antarchyascension:progression/first_steel": true,
+              "antarchyascension:progression/slider": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "milestone"
+    ]
+  ],
+  "parent": "antarchyascension:progression/seal_piece_2"
+}

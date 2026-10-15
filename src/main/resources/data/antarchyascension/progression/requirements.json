@@ -1,0 +1,21 @@
+{
+  "apparatus": {
+    "antarchyascension:skybound_sigil": [
+      "antarchyascension:progression/naga",
+      "antarchyascension:progression/first_steel",
+      "antarchyascension:progression/slider"
+    ],
+    "antarchyascension:grounded_sigil": [
+      "antarchyascension:progression/lich",
+      "antarchyascension:progression/mekanism_online"
+    ],
+    "antarchyascension:nether_crystal_seed": [
+      "antarchyascension:progression/alpha_yeti"
+    ]
+  },
+  "dimension_namespaces": {
+    "infinity": [
+      "nether_remastered:seal_of_the_underworld"
+    ]
+  }
+}

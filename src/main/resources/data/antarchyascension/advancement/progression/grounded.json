@@ -1,0 +1,40 @@
+{
+  "display": {
+    "icon": {
+      "id": "antarchyascension:grounded_sigil"
+    },
+    "title": {
+      "text": "Grounded Sigil"
+    },
+    "description": {
+      "text": "Craft your Grounded Sigil using Frozen Exanimate Essence to unlock Alpha Yeti access."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "milestone": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "antarchyascension:grounded_sigil",
+        "player": {
+          "type_specific": {
+            "type": "minecraft:player",
+            "advancements": {
+              "antarchyascension:progression/lich": true,
+              "antarchyascension:progression/mekanism_online": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "milestone"
+    ]
+  ],
+  "parent": "antarchyascension:progression/lich"
+}

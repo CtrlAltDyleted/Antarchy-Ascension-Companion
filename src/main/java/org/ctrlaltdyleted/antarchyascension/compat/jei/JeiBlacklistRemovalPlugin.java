@@ -29,6 +29,7 @@ public final class JeiBlacklistRemovalPlugin implements IModPlugin {
     @Override
     public void onRuntimeAvailable(IJeiRuntime runtime) {
         IIngredientManager ingredientManager = runtime.getIngredientManager();
+        PermanentJeiFilters.apply(ingredientManager);
         IEditModeConfig editModeConfig = runtime.getEditModeConfig();
 
         List<IIngredientType<?>> ingredientTypes =
