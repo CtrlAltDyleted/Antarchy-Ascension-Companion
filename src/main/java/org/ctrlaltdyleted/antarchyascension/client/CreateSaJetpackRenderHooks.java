@@ -6,7 +6,6 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.WeakHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.ctrlaltdyleted.antarchyascension.AntarchyAscension;
@@ -44,14 +43,6 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
         bus = EventBusSubscriber.Bus.MOD
 )
 public final class CreateSaJetpackRenderHooks {
-    private static final Map<
-            RenderLayerParent<?, ?>,
-            Map<String, RendererInvoker>
-            > RENDERERS = new WeakHashMap<>();
-
-    private static final Map<String, ArmorModelInvoker> ARMOR_MODELS =
-            new HashMap<>();
-
     private static final Set<String> antarchyascension$loggedFailures =
             ConcurrentHashMap.newKeySet();
 
@@ -66,6 +57,8 @@ public final class CreateSaJetpackRenderHooks {
 
     @SubscribeEvent
     public static void onAddLayers(EntityRenderersEvent.AddLayers event) {
+        // Each reload creates fresh layers with fresh model and renderer caches.
+        antarchyascension$loggedFailures.clear();
         if (!ModList.get().isLoaded("create_sa")) {
             return;
         }
@@ -84,6 +77,9 @@ public final class CreateSaJetpackRenderHooks {
                     AbstractClientPlayer,
                     PlayerModel<AbstractClientPlayer>
                     > {
+
+        private final Map<String, RendererInvoker> renderers = new HashMap<>();
+        private final Map<String, ArmorModelInvoker> armorModels = new HashMap<>();
 
         private final RenderLayerParent<
                 AbstractClientPlayer,
@@ -162,7 +158,7 @@ public final class CreateSaJetpackRenderHooks {
             }
 
             ArmorModelInvoker armorModel =
-                    getOrCreateArmorModel(spec);
+                    getOrCreateArmorModel(armorModels, spec);
 
             if (armorModel != null) {
                 armorModel.render(
@@ -181,6 +177,7 @@ public final class CreateSaJetpackRenderHooks {
             RendererInvoker renderer =
                     getOrCreateRenderer(
                             parent,
+                            renderers,
                             spec.rendererClassName());
 
             if (renderer == null) {
@@ -267,14 +264,12 @@ public final class CreateSaJetpackRenderHooks {
     }
 
     private static ArmorModelInvoker getOrCreateArmorModel(
+            Map<String, ArmorModelInvoker> armorModels,
             JetpackVisualSpec spec) {
 
-        synchronized (ARMOR_MODELS) {
-            ArmorModelInvoker cached =
-                    ARMOR_MODELS.get(spec.modelClassName());
-
-            if (cached != null) {
-                return cached;
+        synchronized (armorModels) {
+            if (armorModels.containsKey(spec.modelClassName())) {
+                return armorModels.get(spec.modelClassName());
             }
 
             try {
@@ -326,13 +321,14 @@ public final class CreateSaJetpackRenderHooks {
                                 modelClass.getField("leftarm"),
                                 spec.texture());
 
-                ARMOR_MODELS.put(
+                armorModels.put(
                         spec.modelClassName(),
                         created);
 
                 return created;
             }
             catch (ReflectiveOperationException | LinkageError failure) {
+                armorModels.put(spec.modelClassName(), null);
                 antarchyascension$logReflectionFailure("building armor model " + spec.modelClassName(), failure);
                 return null;
             }
@@ -341,20 +337,13 @@ public final class CreateSaJetpackRenderHooks {
 
     private static RendererInvoker getOrCreateRenderer(
             RenderLayerParent<?, ?> parent,
+            Map<String, RendererInvoker> rendererMap,
             String className) {
 
-        synchronized (RENDERERS) {
+        synchronized (rendererMap) {
             try {
-                Map<String, RendererInvoker> rendererMap =
-                        RENDERERS.computeIfAbsent(
-                                parent,
-                                ignored -> new HashMap<>());
-
-                RendererInvoker cached =
-                        rendererMap.get(className);
-
-                if (cached != null) {
-                    return cached;
+                if (rendererMap.containsKey(className)) {
+                    return rendererMap.get(className);
                 }
 
                 Class<?> rendererClass =
@@ -393,6 +382,7 @@ public final class CreateSaJetpackRenderHooks {
                 return created;
             }
             catch (ReflectiveOperationException | LinkageError failure) {
+                rendererMap.put(className, null);
                 antarchyascension$logReflectionFailure("building renderer " + className, failure);
                 return null;
             }

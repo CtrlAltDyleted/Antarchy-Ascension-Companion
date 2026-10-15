@@ -1,9 +1,7 @@
 package org.ctrlaltdyleted.antarchyascension.mixin.compat.arsnouveau;
 
 import java.lang.reflect.Method;
-import java.util.List;
 import java.util.UUID;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -13,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import org.ctrlaltdyleted.antarchyascension.compat.progression.PendingApparatusCredits;
 import org.ctrlaltdyleted.antarchyascension.compat.progression.ProgressionRequirements;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
@@ -52,12 +51,8 @@ public abstract class ApparatusProgressionMixin {
     private void antarchyascension$check(ItemStack reagent, Player player, CallbackInfoReturnable<Boolean> ci) {
         BlockEntity tile = (BlockEntity)(Object)this;
         if (!(tile.getLevel() instanceof ServerLevel)) return;
-        // Do not overwrite an offline initiator's uncredited completed ritual.
+        // Transfer completed legacy tile credit before another craft replaces its state.
         antarchyascension$credit();
-        if (antarchyascension$completed && antarchyascension$crafter != null) {
-            ci.setReturnValue(false);
-            return;
-        }
         antarchyascension$startingRecipe = antarchyascension$resolve(reagent, player);
         if (antarchyascension$startingRecipe != null
                 && !ProgressionRequirements.canStartApparatus(player, antarchyascension$startingRecipe)) {
@@ -95,15 +90,16 @@ public abstract class ApparatusProgressionMixin {
     @Unique
     private void antarchyascension$credit() {
         BlockEntity tile = (BlockEntity)(Object)this;
-        if (!antarchyascension$completed || antarchyascension$crafter == null
-                || antarchyascension$recipe == null || !(tile.getLevel() instanceof ServerLevel level)) return;
-        var player = level.getServer().getPlayerList().getPlayer(antarchyascension$crafter);
-        if (player == null) return;
-        CriteriaTriggers.RECIPE_CRAFTED.trigger(player, antarchyascension$recipe, List.of());
+        if (!antarchyascension$completed || !(tile.getLevel() instanceof ServerLevel level)) return;
+        UUID crafter = antarchyascension$crafter;
+        if (crafter != null && antarchyascension$recipe != null) {
+            PendingApparatusCredits.queue(level, crafter, antarchyascension$recipe);
+        }
         antarchyascension$crafter = null;
         antarchyascension$recipe = null;
         antarchyascension$completed = false;
         tile.setChanged();
+        if (crafter != null) PendingApparatusCredits.deliverOnline(level.getServer(), crafter);
     }
 
     @Inject(method = "saveAdditional", at = @At("RETURN"))
