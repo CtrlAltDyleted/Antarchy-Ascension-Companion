@@ -16,6 +16,9 @@ Companion mod for the Antarchy - Ascension modpack, providing custom integration
 [[mixins]]
 config="${mod_id}.mixins.json"
 
+[[mixins]]
+config="${mod_id}.visualworkbench.mixins.json"
+
 [[dependencies.${mod_id}]]
 modId="neoforge"
 type="required"

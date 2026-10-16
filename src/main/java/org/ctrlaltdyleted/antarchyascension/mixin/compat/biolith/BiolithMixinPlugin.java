@@ -16,11 +16,14 @@ public final class BiolithMixinPlugin implements IMixinConfigPlugin {
             "org.ctrlaltdyleted.antarchyascension.mixin.compat.biolith.BiolithDimensionTypeAccessor";
 
     private boolean antarchyascension$biolithLoaded;
+    private boolean antarchyascension$watutLoaded;
 
     @Override
     public void onLoad(String mixinPackage) {
         antarchyascension$biolithLoaded =
                 FMLLoader.getLoadingModList().getModFileById("biolith") != null;
+        antarchyascension$watutLoaded =
+                FMLLoader.getLoadingModList().getModFileById("watut") != null;
     }
 
     @Override
@@ -32,6 +35,14 @@ public final class BiolithMixinPlugin implements IMixinConfigPlugin {
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         if (ACCESSOR_MIXIN.equals(mixinClassName)) {
             return antarchyascension$biolithLoaded;
+        }
+        if (mixinClassName.equals(
+                "org.ctrlaltdyleted.antarchyascension.mixin.compat.watut.WatutRenderHelperAccessor")) {
+            return antarchyascension$watutLoaded;
+        }
+        if (mixinClassName.equals(
+                "org.ctrlaltdyleted.antarchyascension.mixin.compat.watut.ModdedWatutCaptureMixin")) {
+            return antarchyascension$watutLoaded;
         }
         return true;
     }

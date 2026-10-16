@@ -32,10 +32,16 @@
     "compat.immersiveengineering.BlastFurnacePreheaterSpeedMixin"
   ],
   "client": [
+    "compat.fabricscreenapi.ScreenEventsNullRemovalMixin",
     "compat.ae2helpers.ScreenStyleWidgetsAccessor",
     "compat.ae2helpers.PatternProviderUpgradePanelLayoutMixin",
     "compat.ae2helpers.CraftConfirmCancelWatcherMixin",
-    "compat.bettercombat.BetterCombatMorphAnimationMixin"
+    "compat.bettercombat.BetterCombatMorphAnimationMixin",
+    "compat.watut.WatutGuiProjectionMixin",
+    "compat.watut.WatutRenderHelperAccessor",
+    "compat.watut.WatutCaptureHookMixin",
+    "compat.watut.ModdedWatutCaptureMixin",
+    "compat.watut.WatutCaptureBuffersMixin"
   ],
   "injectors": {
     "defaultRequire": 1
