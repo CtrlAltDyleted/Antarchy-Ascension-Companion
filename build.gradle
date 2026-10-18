@@ -157,7 +157,4 @@ dependencies {
     compileOnly "curse.maven:ae2-jei-integration-1074338:7727898"
     compileOnly "mezz.jei:jei-1.21.1-common-api:19.51.0.417"
     compileOnly "mezz.jei:jei-1.21.1-neoforge-api:19.51.0.417"
-    compileOnly "curse.maven:modern-morph-1645713:8613759"
-    compileOnly "curse.maven:better-combat-by-daedelus-639842:8430183"
-    compileOnly "curse.maven:playeranimator-658587:7389814"
 }

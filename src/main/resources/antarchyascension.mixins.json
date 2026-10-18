@@ -36,7 +36,6 @@
     "compat.ae2helpers.ScreenStyleWidgetsAccessor",
     "compat.ae2helpers.PatternProviderUpgradePanelLayoutMixin",
     "compat.ae2helpers.CraftConfirmCancelWatcherMixin",
-    "compat.bettercombat.BetterCombatMorphAnimationMixin",
     "compat.watut.WatutGuiProjectionMixin",
     "compat.watut.WatutRenderHelperAccessor",
     "compat.watut.WatutCaptureHookMixin",
