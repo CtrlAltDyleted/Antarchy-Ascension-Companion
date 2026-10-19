@@ -29,7 +29,10 @@
     "compat.curios.CuriosGenericExclusionsMixin",
     "compat.arsnouveau.ApparatusProgressionMixin",
     "compat.zps.CreateScriptCommandsMixin",
-    "compat.immersiveengineering.BlastFurnacePreheaterSpeedMixin"
+    "compat.immersiveengineering.BlastFurnacePreheaterSpeedMixin",
+    "compat.visualworkbench.CraftingMenuStateAccessor",
+    "compat.visualworkbench.VisualCraftingMenuCloseMixin",
+    "compat.visualworkbench.FastWorkbenchVisualSyncMixin"
   ],
   "client": [
     "compat.fabricscreenapi.ScreenEventsNullRemovalMixin",
