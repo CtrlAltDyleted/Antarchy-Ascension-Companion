@@ -29,7 +29,7 @@ public class AntarchyAscension {
             event.accept(ModItems.COMPACTED_SILICA.get());
             event.accept(ModItems.CRUDE_SILICON.get());
             event.accept(ModItems.PRESSED_SILICON_SUBSTRATE.get());
-            event.accept(ModItems.CALCULATION_CIRCUIT.get());
+            event.accept(ModItems.CALCULATION_MICROCHIP.get());
             event.accept(ModItems.SKYBOUND_KEY.get());
             event.accept(ModItems.FROZEN_EXANIMATE_ESSENCE.get());
             event.accept(ModItems.SKYBOUND_SIGIL.get());

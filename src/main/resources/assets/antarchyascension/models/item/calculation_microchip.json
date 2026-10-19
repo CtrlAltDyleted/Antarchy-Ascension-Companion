@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "antarchyascension:item/calculation_circuit"
+    "layer0": "antarchyascension:item/calculation_microchip"
   }
 }
