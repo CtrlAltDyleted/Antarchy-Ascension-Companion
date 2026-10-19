@@ -7,7 +7,6 @@
     "compat.ae2.MeteoriteBlockPutterMixin",
     "compat.ae2.MeteoritePlacerMixin",
     "compat.ae2.MeteoriteStructurePieceMixin",
-    "compat.appliedpneumatics.AE2ServerTickerCompatMixin",
     "compat.nep.NepImportCardRegistrationMixin",
     "compat.nep.NepImportUpgradeSlotMixin",
     "compat.appliedsticks.AppliedSticksServerEventsMixin",
