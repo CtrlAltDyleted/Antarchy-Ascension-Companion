@@ -42,7 +42,10 @@
     "compat.watut.WatutRenderHelperAccessor",
     "compat.watut.WatutCaptureHookMixin",
     "compat.watut.ModdedWatutCaptureMixin",
-    "compat.watut.WatutCaptureBuffersMixin"
+    "compat.watut.WatutCaptureBuffersMixin",
+    "compat.ae2.PigmeeGuiMixins$CraftConfirmLabels",
+    "compat.ae2.PigmeeGuiMixins$CpuSelectionLabels",
+    "compat.ae2.PigmeeGuiMixins$CraftPlanHeader"
   ],
   "injectors": {
     "defaultRequire": 1

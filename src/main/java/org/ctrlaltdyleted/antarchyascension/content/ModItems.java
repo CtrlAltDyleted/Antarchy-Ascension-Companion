@@ -17,6 +17,8 @@ public final class ModItems {
     public static final DeferredItem<Item> COMPACTED_SILICA = ITEMS.registerSimpleItem("compacted_silica");
     public static final DeferredItem<Item> CRUDE_SILICON = ITEMS.registerSimpleItem("crude_silicon");
     public static final DeferredItem<Item> PRESSED_SILICON_SUBSTRATE = ITEMS.registerSimpleItem("pressed_silicon_substrate");
+    public static final DeferredItem<Item> BASIC_CIRCUIT_PRESS = ITEMS.registerSimpleItem("basic_circuit_press");
+    public static final DeferredItem<Item> INCOMPLETE_BLANK_PATTERN = ITEMS.registerSimpleItem("incomplete_blank_pattern");
     public static final DeferredItem<Item> INCOMPLETE_1K_COMPONENT = ITEMS.registerSimpleItem("incomplete_1k_component");
     public static final DeferredItem<BlockItem> RAW_DENSE_URANIUM_BLOCK =
             ITEMS.registerSimpleBlockItem(ModBlocks.RAW_DENSE_URANIUM_BLOCK);

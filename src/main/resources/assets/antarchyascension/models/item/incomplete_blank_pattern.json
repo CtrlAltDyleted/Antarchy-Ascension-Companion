@@ -1,0 +1,6 @@
+{
+  "parent": "ae2:item/blank_pattern",
+  "textures": {
+    "layer0": "antarchyascension:unfinished/ae2/item/blank_pattern"
+  }
+}

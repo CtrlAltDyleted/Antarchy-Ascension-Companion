@@ -34,6 +34,11 @@
       "type": "antarchyascension:desaturated",
       "resource": "ae2:item/cell_component_1k",
       "sprite": "antarchyascension:unfinished/ae2/item/cell_component_1k"
+    },
+    {
+      "type": "antarchyascension:desaturated",
+      "resource": "ae2:item/blank_pattern",
+      "sprite": "antarchyascension:unfinished/ae2/item/blank_pattern"
     }
   ]
 }

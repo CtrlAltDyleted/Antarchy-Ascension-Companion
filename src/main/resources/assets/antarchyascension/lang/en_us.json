@@ -29,5 +29,7 @@
   "item.antarchyascension.frozen_exanimate_essence": "Frozen Exanimate Essence",
   "message.antarchyascension.craft_own_seal": "You must craft your own Seal of the Underworld before using it.",
   "item.antarchyascension.industrial_core": "Industrial Core",
-  "item.antarchyascension.keystone_of_industry": "Keystone of Industry"
+  "item.antarchyascension.keystone_of_industry": "Keystone of Industry",
+  "item.antarchyascension.basic_circuit_press": "Basic Circuit Press",
+  "item.antarchyascension.incomplete_blank_pattern": "Incomplete Blank Pattern"
 }

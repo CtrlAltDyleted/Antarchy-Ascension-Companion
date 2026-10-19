@@ -13,6 +13,9 @@ import java.util.Set;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.ingredients.IIngredientType;
 import mezz.jei.api.runtime.IIngredientManager;
+import mezz.jei.api.recipe.IRecipeManager;
+import mezz.jei.api.recipe.RecipeType;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -47,6 +50,30 @@ final class PermanentJeiFilters {
         } catch (IOException | RuntimeException exception) {
             AntarchyAscension.LOGGER.error("Could not apply permanent JEI filters", exception);
         }
+    }
+
+    static void applyRecipes(IRecipeManager manager) {
+        ResourceLocation resource = ResourceLocation.fromNamespaceAndPath(
+                AntarchyAscension.MODID, "jei_filters.json");
+        try (var reader = new InputStreamReader(
+                Minecraft.getInstance().getResourceManager().open(resource), StandardCharsets.UTF_8)) {
+            JsonArray filters = JsonParser.parseReader(reader).getAsJsonObject().getAsJsonArray("recipes");
+            if (filters == null) return;
+            for (var filter : filters) {
+                JsonObject entry = filter.getAsJsonObject();
+                ResourceLocation category = ResourceLocation.parse(entry.get("category").getAsString());
+                ResourceLocation recipe = ResourceLocation.parse(entry.get("id").getAsString());
+                manager.getRecipeType(category).ifPresent(type -> hideRecipe(manager, type, recipe));
+            }
+        } catch (IOException | RuntimeException exception) {
+            AntarchyAscension.LOGGER.error("Could not apply permanent JEI recipe filters", exception);
+        }
+    }
+
+    private static <T> void hideRecipe(IRecipeManager manager, RecipeType<T> type, ResourceLocation id) {
+        List<T> hidden = manager.createRecipeLookup(type).includeHidden().get()
+                .filter(recipe -> recipe instanceof RecipeHolder<?> holder && holder.id().equals(id)).toList();
+        if (!hidden.isEmpty()) manager.hideRecipes(type, hidden);
     }
 
     private static Set<ResourceLocation> ids(JsonArray values) {
