@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.antarchyascension.client;
+package org.ctrlaltdyleted.antarchyascension.client.compat.create_sa;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

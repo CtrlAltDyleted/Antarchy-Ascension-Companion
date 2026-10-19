@@ -1,11 +1,8 @@
 package org.ctrlaltdyleted.antarchyascension;
-
 import org.ctrlaltdyleted.antarchyascension.content.ModBlocks;
 import org.ctrlaltdyleted.antarchyascension.content.ModItems;
 import org.slf4j.Logger;
-
 import com.mojang.logging.LogUtils;
-
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -32,7 +29,7 @@ public class AntarchyAscension {
             event.accept(ModItems.COMPACTED_SILICA.get());
             event.accept(ModItems.CRUDE_SILICON.get());
             event.accept(ModItems.PRESSED_SILICON_SUBSTRATE.get());
-            event.accept(ModItems.CRAFTING_CIRCUIT.get());
+            event.accept(ModItems.CALCULATION_CIRCUIT.get());
             event.accept(ModItems.SKYBOUND_KEY.get());
             event.accept(ModItems.FROZEN_EXANIMATE_ESSENCE.get());
             event.accept(ModItems.SKYBOUND_SIGIL.get());

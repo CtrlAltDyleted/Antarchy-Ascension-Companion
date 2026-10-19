@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.antarchyascension.client;
+package org.ctrlaltdyleted.antarchyascension.client.compat.tooltips;
 
 import java.util.Map;
 import java.util.Arrays;

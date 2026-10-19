@@ -11,7 +11,7 @@
     "compat.nep.NepImportCardRegistrationMixin",
     "compat.nep.NepImportUpgradeSlotMixin",
     "compat.appliedsticks.AppliedSticksServerEventsMixin",
-    "PlayerForcedPoseCompatMixin",
+    "compat.relics_and_personality.PlayerForcedPoseCompatMixin",
     "compat.createsa.CreateSaFlyingProcedureMixin",
     "compat.createsa.CreateSaTankProcedureMixin",
     "compat.createsa.CreateSaJetpackInventoryTickMixin",

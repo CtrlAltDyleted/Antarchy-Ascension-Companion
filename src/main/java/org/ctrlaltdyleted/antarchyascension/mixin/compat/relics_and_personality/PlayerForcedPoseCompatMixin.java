@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.antarchyascension.mixin;
+package org.ctrlaltdyleted.antarchyascension.mixin.compat.relics_and_personality;
 
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.Player;
