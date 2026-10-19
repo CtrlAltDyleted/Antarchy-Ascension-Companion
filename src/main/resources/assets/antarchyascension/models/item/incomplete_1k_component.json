@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "ae2:item/cell_component_1k",
   "textures": {
-    "layer0": "antarchyascension:item/incomplete_1k_component"
+    "layer0": "antarchyascension:unfinished/ae2/item/cell_component_1k"
   }
 }

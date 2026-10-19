@@ -29,6 +29,11 @@
       "type": "minecraft:single",
       "resource": "antarchyascension:item/frozen_exanimate_essence",
       "sprite": "antarchyascension:item/frozen_exanimate_essence"
+    },
+    {
+      "type": "antarchyascension:desaturated",
+      "resource": "ae2:item/cell_component_1k",
+      "sprite": "antarchyascension:unfinished/ae2/item/cell_component_1k"
     }
   ]
 }
