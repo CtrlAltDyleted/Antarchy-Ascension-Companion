@@ -8,7 +8,7 @@ Ongoing **0.3.0-alpha** development is listed under Unreleased, not as a publish
 
 ### Added
 
-- Progression items including Nether Core, Industrial Core, Keystone of Industry, sigils, keys, silica materials, Basic Circuit Press, and Calculation Microchip.
+- Progression items including Nether Core, Molten Heart, Industrial Core, Keystone of Industry, sigils, keys, silica materials, Basic Circuit Press, and Calculation Microchip.
 - Personal progression checks for rituals and Seal of the Underworld use.
 
 ### Changed

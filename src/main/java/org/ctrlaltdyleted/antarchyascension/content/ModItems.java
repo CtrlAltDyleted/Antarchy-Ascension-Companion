@@ -33,6 +33,7 @@ public final class ModItems {
     public static final DeferredItem<Item> GROUNDED_SIGIL = ITEMS.registerSimpleItem("grounded_sigil", new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> NETHER_CRYSTAL_SEED = ITEMS.registerSimpleItem("nether_crystal_seed", new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> NETHER_CORE = ITEMS.registerSimpleItem("nether_core", new Item.Properties().stacksTo(1));
+    public static final DeferredItem<Item> MOLTEN_HEART = ITEMS.registerSimpleItem("molten_heart", new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> SKYBOUND_KEY = ITEMS.registerSimpleItem("skybound_key", new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> FROZEN_EXANIMATE_ESSENCE = ITEMS.registerSimpleItem("frozen_exanimate_essence");
     public static final DeferredItem<Item> CALCULATION_MICROCHIP = ITEMS.registerSimpleItem("calculation_microchip");

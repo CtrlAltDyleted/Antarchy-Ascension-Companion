@@ -37,6 +37,7 @@ public class AntarchyAscension {
             event.accept(ModItems.GROUNDED_SIGIL.get());
             event.accept(ModItems.NETHER_CRYSTAL_SEED.get());
             event.accept(ModItems.NETHER_CORE.get());
+            event.accept(ModItems.MOLTEN_HEART.get());
             event.accept(ModItems.INDUSTRIAL_CORE.get());
             event.accept(ModItems.KEYSTONE_OF_INDUSTRY.get());
         }
