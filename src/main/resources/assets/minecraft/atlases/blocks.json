@@ -1,6 +1,11 @@
 {
   "sources": [
     {
+      "type": "antarchyascension:desaturated",
+      "resource": "antarchyascension:item/calculation_microchip",
+      "sprite": "antarchyascension:unfinished/antarchyascension/item/calculation_microchip"
+    },
+    {
       "type": "minecraft:single",
       "resource": "antarchyascension:item/skybound_sigil",
       "sprite": "antarchyascension:item/skybound_sigil"

@@ -1,0 +1,6 @@
+{
+  "parent": "antarchyascension:item/calculation_microchip",
+  "textures": {
+    "layer0": "antarchyascension:unfinished/antarchyascension/item/calculation_microchip"
+  }
+}

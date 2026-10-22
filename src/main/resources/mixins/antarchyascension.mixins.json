@@ -34,6 +34,7 @@
     "compat.visualworkbench.FastWorkbenchVisualSyncMixin"
   ],
   "client": [
+    "compat.easyvillagers.AntosWorkstationRenderMixin",
     "compat.fabricscreenapi.ScreenEventsNullRemovalMixin",
     "compat.ae2helpers.ScreenStyleWidgetsAccessor",
     "compat.ae2helpers.PatternProviderUpgradePanelLayoutMixin",

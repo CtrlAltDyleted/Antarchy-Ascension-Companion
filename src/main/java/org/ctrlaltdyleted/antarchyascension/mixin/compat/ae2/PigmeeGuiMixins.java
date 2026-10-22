@@ -25,7 +25,7 @@ public final class PigmeeGuiMixins {
     @Mixin(targets = {"appeng.client.gui.me.crafting.CraftConfirmScreen",
             "com.moakiee.ae2lt.client.AE2LtCraftConfirmScreen"}, remap = false)
     public static abstract class CraftConfirmLabels {
-        @Shadow(aliases = "selectCpu") @Final private Button selectCPU;
+        @Shadow(aliases = "selectCpu", remap = false) @Final private Button selectCPU;
         @Unique private Component antarchyascension$fullCpuLabel;
 
         @Inject(method = "getNextCpuButtonLabel", at = @At("RETURN"), cancellable = true)

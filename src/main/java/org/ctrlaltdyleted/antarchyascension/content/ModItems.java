@@ -35,6 +35,7 @@ public final class ModItems {
     public static final DeferredItem<Item> SKYBOUND_KEY = ITEMS.registerSimpleItem("skybound_key", new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> FROZEN_EXANIMATE_ESSENCE = ITEMS.registerSimpleItem("frozen_exanimate_essence");
     public static final DeferredItem<Item> CALCULATION_MICROCHIP = ITEMS.registerSimpleItem("calculation_microchip");
+    public static final DeferredItem<Item> INCOMPLETE_CALCULATION_MICROCHIP = ITEMS.registerSimpleItem("incomplete_calculation_microchip");
     public static final DeferredItem<Item> INDUSTRIAL_CORE = ITEMS.registerSimpleItem("industrial_core");
     public static final DeferredItem<Item> KEYSTONE_OF_INDUSTRY = ITEMS.registerSimpleItem("keystone_of_industry", new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> PACK_EMBLEM = ITEMS.registerSimpleItem("pack_emblem");
