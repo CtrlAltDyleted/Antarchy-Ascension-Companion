@@ -20,6 +20,7 @@ public final class ModItems {
     public static final DeferredItem<Item> BASIC_CIRCUIT_PRESS = ITEMS.registerSimpleItem("basic_circuit_press");
     public static final DeferredItem<Item> INCOMPLETE_BLANK_PATTERN = ITEMS.registerSimpleItem("incomplete_blank_pattern");
     public static final DeferredItem<Item> INCOMPLETE_1K_COMPONENT = ITEMS.registerSimpleItem("incomplete_1k_component");
+    public static final DeferredItem<Item> INCOMPLETE_4K_COMPONENT = ITEMS.registerSimpleItem("incomplete_4k_component");
     public static final DeferredItem<BlockItem> RAW_DENSE_URANIUM_BLOCK =
             ITEMS.registerSimpleBlockItem(ModBlocks.RAW_DENSE_URANIUM_BLOCK);
     public static final DeferredItem<BlockItem> DENSE_URANIUM_BLOCK =

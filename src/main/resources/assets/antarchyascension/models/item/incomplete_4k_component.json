@@ -1,0 +1,6 @@
+{
+  "parent": "ae2:item/cell_component_4k",
+  "textures": {
+    "layer0": "antarchyascension:unfinished/ae2/item/cell_component_4k"
+  }
+}
