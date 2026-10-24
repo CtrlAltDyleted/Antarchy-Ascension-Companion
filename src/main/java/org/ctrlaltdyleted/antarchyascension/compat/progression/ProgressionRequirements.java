@@ -18,9 +18,10 @@ import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.event.entity.EntityTravelToDimensionEvent;
 import org.ctrlaltdyleted.antarchyascension.AntarchyAscension;
 
-/** Runtime mechanics with Companion-owned, data-driven progression requirements. */
+// Loads the progression requirements
 @EventBusSubscriber(modid = AntarchyAscension.MODID)
 public final class ProgressionRequirements extends SimpleJsonResourceReloadListener {
+    // Stores the loaded progression rules
     private static volatile Map<ResourceLocation, List<ResourceLocation>> apparatus = Map.of();
     private static volatile Map<String, List<ResourceLocation>> dimensionNamespaces = Map.of();
 
@@ -38,6 +39,7 @@ public final class ProgressionRequirements extends SimpleJsonResourceReloadListe
             ProfilerFiller profiler) {
         var id = ResourceLocation.fromNamespaceAndPath(AntarchyAscension.MODID, "requirements");
         JsonElement resource = resources.get(id);
+        // Requires the progression rules file
         if (resource == null) {
             throw new IllegalStateException("Missing Companion progression/requirements.json");
         }
@@ -59,8 +61,10 @@ public final class ProgressionRequirements extends SimpleJsonResourceReloadListe
     }
 
     private static boolean satisfies(Player player, List<ResourceLocation> required) {
+        // Allows entries without requirements
         if (required == null || required.isEmpty()) return true;
         if (!(player instanceof ServerPlayer serverPlayer)) return false;
+        // Checks all required advancements
         for (ResourceLocation id : required) {
             var advancement = serverPlayer.server.getAdvancements().get(id);
             if (advancement == null || !serverPlayer.getAdvancements().getOrStartProgress(advancement).isDone()) {

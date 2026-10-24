@@ -1,5 +1,6 @@
 {
   "size": 1,
   "order": 410,
-  "icon": "antarchyascension:slot/slot_jetpack"
+  "icon": "antarchyascension:slot/slot_jetpack",
+  "operation": "SET"
 }

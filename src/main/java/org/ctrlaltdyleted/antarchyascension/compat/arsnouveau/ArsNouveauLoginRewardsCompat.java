@@ -20,6 +20,7 @@ public final class ArsNouveauLoginRewardsCompat {
     public static void antarchyascension$disableStarbunclePlushReward(
             PlayerEvent.PlayerLoggedInEvent event) {
 
+        // Marks the plush reward as already received
         CompoundTag persistentData = event.getEntity().getPersistentData();
         CompoundTag persistedPlayerData = persistentData.getCompound(Player.PERSISTED_NBT_TAG);
         persistedPlayerData.putBoolean(antarchyascension$STARBUNCLE_PLUSH_REWARD, true);

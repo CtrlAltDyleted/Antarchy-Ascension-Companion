@@ -24,6 +24,7 @@ public final class PersonalSealOwnership {
 
     @SubscribeEvent
     public static void crafted(PlayerEvent.ItemCraftedEvent event) {
+        // Saves who crafted the Seal
         if (event.getEntity() instanceof ServerPlayer player && isSeal(event.getCrafting())) {
             CustomData.update(DataComponents.CUSTOM_DATA, event.getCrafting(),
                 tag -> tag.putUUID(OWNER, player.getUUID()));
@@ -34,6 +35,7 @@ public final class PersonalSealOwnership {
     public static void use(PlayerInteractEvent.RightClickItem event) {
         if (!(event.getEntity() instanceof ServerPlayer player) || !isSeal(event.getItemStack())) return;
         var tag = event.getItemStack().getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        // Only allows the crafter to use the Seal
         if (!tag.hasUUID(OWNER) || !tag.getUUID(OWNER).equals(player.getUUID())) {
             event.setCanceled(true);
             event.setCancellationResult(InteractionResult.FAIL);

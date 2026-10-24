@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(BiomeSource.class)
 public interface BiolithDimensionTypeAccessor {
 
+    // Reads the dimension type added by Biolith
     @Dynamic("Added to BiomeSource by Biolith MixinBiomeSource")
     @Accessor(value = "biolith$dimensionType", remap = false)
     ResourceKey<DimensionType> antarchyascension$getBiolithDimensionType();

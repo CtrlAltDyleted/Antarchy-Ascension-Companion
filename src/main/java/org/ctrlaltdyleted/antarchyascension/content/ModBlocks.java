@@ -12,6 +12,7 @@ import static org.ctrlaltdyleted.antarchyascension.AntarchyAscension.MODID;
 public final class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
 
+    // Requires the correct tool for uranium blocks
     public static final DeferredBlock<Block> RAW_DENSE_URANIUM_BLOCK = BLOCKS.register(
             "raw_dense_uranium_block",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -25,6 +26,7 @@ public final class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.METAL)));
 
+    // Sets up the glass blocks
     public static final DeferredBlock<Block> SILICA_GLASS = BLOCKS.register(
             "silica_glass",
             () -> new TransparentBlock(BlockBehaviour.Properties.of()

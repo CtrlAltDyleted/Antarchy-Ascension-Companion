@@ -4,16 +4,15 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.loading.FMLEnvironment;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Pseudo
 @Mixin(targets = "dev.creoii.luckyblock.neoforge.LuckyBlockNeoForge", remap = false)
 public abstract class LuckyBlockNeoForgeClientInitMixin {
     @Inject(method = "<init>", at = @At("RETURN"), remap = false)
     private void antarchyascension$initLuckyBlockClient(IEventBus modBus, CallbackInfo ci) {
+        // Only loads the client setup on the client
         if (FMLEnvironment.dist != Dist.CLIENT) {
             return;
         }

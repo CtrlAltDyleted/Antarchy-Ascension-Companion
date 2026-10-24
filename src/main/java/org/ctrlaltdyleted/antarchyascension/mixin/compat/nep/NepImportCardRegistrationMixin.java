@@ -18,6 +18,7 @@ public abstract class NepImportCardRegistrationMixin {
     private static void antarchyascension$excludeNepImportCard(
         ItemLike card, ItemLike host, int maxCount, String group, CallbackInfo ci
     ) {
+        // Skips NEP import-card registration
         if (BuiltInRegistries.ITEM.getKey(card.asItem()).toString().equals("nep:import_card")) {
             ci.cancel();
         }

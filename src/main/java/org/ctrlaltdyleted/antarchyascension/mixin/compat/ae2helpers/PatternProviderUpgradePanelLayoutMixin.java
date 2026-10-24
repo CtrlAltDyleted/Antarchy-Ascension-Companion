@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.function.Consumer;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.renderer.Rect2i;
-import net.neoforged.fml.ModList;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -27,9 +26,8 @@ public abstract class PatternProviderUpgradePanelLayoutMixin {
     private void antarchyascension$separateImportPanel(
         Consumer<AbstractWidget> addWidget, Rect2i screenBounds, AEBaseScreen<?> screen, CallbackInfo ci
     ) {
-        if (!(screen instanceof PatternProviderScreen<?>)
-            || !ModList.get().isLoaded("ae2helpers")
-            || !ModList.get().isLoaded("expandedae")) {
+        // Checks for the affected Pattern Provider screen
+        if (!(screen instanceof PatternProviderScreen<?>)) {
             return;
         }
 
@@ -46,6 +44,7 @@ public abstract class PatternProviderUpgradePanelLayoutMixin {
         PatternProviderMenu menu = (PatternProviderMenu) screen.getMenu();
         int upgradeCount = menu.getSlots(SlotSemantics.UPGRADE).size();
         int baseTop = base.getTop() == null ? 0 : base.getTop();
+        // Places the import panel below the upgrade rows
         relocated.setTop(baseTop + 10 + Math.min(8, upgradeCount) * 18 + 8);
         relocated.setWidth(imports.getWidth());
         relocated.setHeight(imports.getHeight());

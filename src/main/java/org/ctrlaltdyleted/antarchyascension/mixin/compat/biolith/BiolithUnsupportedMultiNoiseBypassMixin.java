@@ -7,7 +7,6 @@ import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.dimension.DimensionType;
-import net.neoforged.fml.loading.FMLLoader;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,9 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = MultiNoiseBiomeSource.class, priority = 901)
 public abstract class BiolithUnsupportedMultiNoiseBypassMixin {
-
-    private static final boolean antarchyascension$BIOLITH_LOADED =
-            FMLLoader.getLoadingModList().getModFileById("biolith") != null;
 
     @Shadow
     protected abstract Climate.ParameterList<Holder<Biome>> parameters();
@@ -36,19 +32,17 @@ public abstract class BiolithUnsupportedMultiNoiseBypassMixin {
         Climate.Sampler sampler,
         CallbackInfoReturnable<Holder<Biome>> cir
     ) {
-        if (!antarchyascension$BIOLITH_LOADED) {
-            return;
-        }
-
         ResourceKey<DimensionType> dimensionType =
             ((BiolithDimensionTypeAccessor) (Object) this)
                 .antarchyascension$getBiolithDimensionType();
 
+        // Keeps the normal Overworld and Nether lookup
         if (BuiltinDimensionTypes.OVERWORLD.equals(dimensionType)
             || BuiltinDimensionTypes.NETHER.equals(dimensionType)) {
             return;
         }
 
+        // Uses the existing biome parameters for other dimensions
         cir.setReturnValue(
             this.parameters().findValueBruteForce(
                 sampler.sample(x, y, z)

@@ -4,12 +4,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingInput;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Pseudo
 @Mixin(
     targets = "dev.creoii.luckyblock.recipe.LuckyRecipe",
     remap = false
@@ -36,6 +34,7 @@ public abstract class LuckyRecipeResultCountMixin {
             return;
         }
 
+        // Returns one item while keeping its data
         ItemStack fixed = result.copy();
         fixed.setCount(1);
         cir.setReturnValue(fixed);

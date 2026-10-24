@@ -5,7 +5,6 @@ import org.ctrlaltdyleted.antarchyascension.AntarchyAscension;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
@@ -16,8 +15,12 @@ public final class CurioEquipmentTickHandler {
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
-        if (!ModList.get().isLoaded("create_sa")) {
-            return;
+        Player equipmentPlayer = event.getEntity();
+        ItemStack wings = CurioEquipmentHelper.equippedElytra(equipmentPlayer);
+        // Runs the Manticore wing effect on the server
+        if (!equipmentPlayer.level().isClientSide && equipmentPlayer.isFallFlying()
+                && CurioEquipmentHelper.isManticoreWings(wings)) {
+            wings.getItem().inventoryTick(wings, equipmentPlayer.level(), equipmentPlayer, -1, false);
         }
 
         Player player = event.getEntity();
@@ -27,6 +30,7 @@ public final class CurioEquipmentTickHandler {
                 CurioEquipmentHelper.JETPACK_SLOT,
                 stack -> stack.is(CurioEquipmentHelper.CREATE_SA_JETPACKS));
 
+        // Ticks the equipped jetpack
         if (!jetpack.isEmpty()) {
             jetpack.getItem().inventoryTick(
                     jetpack,
@@ -36,6 +40,7 @@ public final class CurioEquipmentTickHandler {
                     false);
         }
 
+        // Ticks the filling and fueling tanks
         CurioEquipmentHelper.forEachStackInSlot(
                 player,
                 CurioEquipmentHelper.TANK_SLOT,

@@ -15,7 +15,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.common.inventory.CurioSlot;
 import top.theillusivec4.curios.common.inventory.container.CuriosContainer;
 
-/** Curios PR #588 equivalent for 9.5.1; recheck after a Curios update. */
+// Fixes dedicated-slot shift-click handling in Curios 9.5.1
 @Mixin(CuriosContainer.class)
 public abstract class CuriosSpecificSlotQuickMoveMixin {
     @WrapOperation(method = "quickMoveStack", at = @At(value = "INVOKE", target =
@@ -24,10 +24,11 @@ public abstract class CuriosSpecificSlotQuickMoveMixin {
     private EquipmentSlot antarchyascension$curiosBeforeArmor(Player player, ItemStack copy,
             Operation<EquipmentSlot> original, Player methodPlayer, int sourceIndex) {
         CuriosContainer menu = (CuriosContainer) (Object) this;
-        // Curios 9.5.1 checks armor before Curio transfer and Curio-source fallback.
+        // Checks Curios before armor
         if (menu.slots.get(sourceIndex) instanceof CurioSlot
                 || (sourceIndex >= 9 && sourceIndex < 45
                 && !CuriosApi.getItemStackSlots(copy, player.level()).isEmpty())) {
+            // Allows Curios handling before armor placement
             return EquipmentSlot.MAINHAND;
         }
         return original.call(player, copy);
@@ -45,7 +46,7 @@ public abstract class CuriosSpecificSlotQuickMoveMixin {
             require = 1, allow = 1)
     private boolean antarchyascension$specificBeforeGeneric(CuriosContainer menu, ItemStack stack,
             int start, int end, boolean reverse, Operation<Boolean> original) {
-        // Curios 9.5.1 places visible Curio slots from index 46 onward.
+        // Curios slots start at index 46
         if (start != 46 || end != menu.slots.size() || reverse) {
             return original.call(menu, stack, start, end, reverse);
         }
@@ -57,6 +58,7 @@ public abstract class CuriosSpecificSlotQuickMoveMixin {
             }
         }
         boolean moved = false;
+        // Tries dedicated slots before generic slots
         for (List<Integer> group : List.of(specific, generic)) {
             for (int index : group) {
                 if (stack.isEmpty()) return moved;

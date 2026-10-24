@@ -14,12 +14,16 @@ public class AntarchyAscension {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public AntarchyAscension(IEventBus modEventBus) {
+        // Registers the mod's blocks and items
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         modEventBus.addListener(this::addCreativeTabContents);
+        modEventBus.addListener(net.neoforged.bus.api.EventPriority.LOWEST,
+                org.ctrlaltdyleted.antarchyascension.compat.curios.CurioEquipmentHelper::registerEquipSounds);
     }
 
     private void addCreativeTabContents(BuildCreativeModeTabContentsEvent event) {
+        // Adds the mod's items
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.DENSE_URANIUM_NUGGET.get());
             event.accept(ModItems.RAW_DENSE_URANIUM.get());
@@ -42,6 +46,7 @@ public class AntarchyAscension {
             event.accept(ModItems.KEYSTONE_OF_INDUSTRY.get());
         }
 
+        // Adds the mod's blocks
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModItems.RAW_DENSE_URANIUM_BLOCK.get());
             event.accept(ModItems.DENSE_URANIUM_BLOCK.get());

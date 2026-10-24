@@ -2,7 +2,6 @@ package org.ctrlaltdyleted.antarchyascension.mixin.compat.createsa;
 
 import org.ctrlaltdyleted.antarchyascension.compat.curios.CurioEquipmentHelper;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -10,7 +9,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 
-@Pseudo
 @Mixin(
         targets = {
                 "net.mcreator.createstuffadditions.procedures.SmallFillingTankItemInInventoryTickProcedure",
@@ -32,6 +30,7 @@ public abstract class CreateSaTankProcedureMixin {
             LivingEntity entity,
             EquipmentSlot slot) {
 
+        // Finds the equipment the tank should fill
         return CurioEquipmentHelper.resolveCreateSaTankTarget(entity, slot);
     }
 }

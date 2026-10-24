@@ -28,7 +28,7 @@ Ongoing **0.3.0-alpha** development is listed under Unreleased, not as a publish
 - Jetpack rendering in dedicated Curios slots and flight-control tooltip key names.
 - Ritual progression credit and advancement unlocking.
 - Visual Workbench crafting displays and modded screen rendering in What Are They Up To.
-- Engineer's Goggles and other dedicated Curios equipment also being accepted in generic slots.
+- Curios Equipment now shift clicks into the correct slot when curios menu is open.
 
 ## 0.2.0-alpha - 2026-09-23
 

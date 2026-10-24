@@ -21,7 +21,9 @@ public final class CurioArmorAttributeBridge {
     public static void onCurioAttributes(CurioAttributeModifierEvent event) {
         String slotId = event.getSlotContext().identifier();
 
-        if (CurioEquipmentHelper.JETPACK_SLOT.equals(slotId)) {
+        // Adds the normal armor attributes
+        if (CurioEquipmentHelper.JETPACK_SLOT.equals(slotId)
+                || CurioEquipmentHelper.ELYTRA_SLOT.equals(slotId) && CurioEquipmentHelper.isAntarchyWings(event.getItemStack())) {
             addNonzeroEquipmentModifiers(
                     event,
                     event.getItemStack(),
@@ -45,6 +47,7 @@ public final class CurioArmorAttributeBridge {
         stack.forEachModifier(
                 equipmentGroup,
                 (attribute, modifier) -> {
+                    // Skips zero-value modifiers
                     if (modifier.amount() == 0.0D) {
                         return;
                     }
@@ -69,6 +72,7 @@ public final class CurioArmorAttributeBridge {
                 return true;
             }
 
+            // Prevents duplicate modifiers
             if (modifier.is(wanted.id())) {
                 return true;
             }

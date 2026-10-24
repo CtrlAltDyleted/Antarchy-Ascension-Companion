@@ -2,7 +2,6 @@ package org.ctrlaltdyleted.antarchyascension.mixin.compat.createsa;
 
 import org.ctrlaltdyleted.antarchyascension.compat.curios.CurioEquipmentHelper;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -13,7 +12,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-@Pseudo
 @Mixin(
         targets = {
                 "net.mcreator.createstuffadditions.item.AndesiteJetpackItem$Chestplate",
@@ -41,6 +39,7 @@ public abstract class CreateSaJetpackInventoryTickMixin {
             int slot,
             boolean selected) {
 
+        // Checks armor first, then the dedicated jetpack slot
         if (Iterables.contains(armorSlots, wanted)) {
             return true;
         }

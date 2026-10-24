@@ -14,15 +14,13 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import org.ctrlaltdyleted.antarchyascension.compat.progression.PendingApparatusCredits;
 import org.ctrlaltdyleted.antarchyascension.compat.progression.ProgressionRequirements;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/** Credits a completed apparatus recipe to its initiator, never to an item recipient. */
-@Pseudo
+// Gives recipe credit to the player who started the craft
 @Mixin(targets = "com.hollingsworth.arsnouveau.common.block.tile.EnchantingApparatusTile", remap = false)
 public abstract class ApparatusProgressionMixin {
     @Unique private UUID antarchyascension$crafter;
@@ -35,11 +33,13 @@ public abstract class ApparatusProgressionMixin {
     private ResourceLocation antarchyascension$resolve(ItemStack reagent, Player player) {
         BlockEntity tile = (BlockEntity)(Object)this;
         try {
+            // Caches the recipe lookup method
             if (antarchyascension$getRecipe == null) {
                 antarchyascension$getRecipe = this.getClass().getMethod("getRecipe", ItemStack.class, Player.class);
             }
             Object value = antarchyascension$getRecipe.invoke(this, reagent, player);
             if (!(value instanceof Recipe<?> recipe) || tile.getLevel() == null) return null;
+            // Finds the selected recipe ID
             return tile.getLevel().getRecipeManager().getRecipes().stream()
                     .filter(holder -> holder.value() == recipe).map(holder -> holder.id()).findFirst().orElse(null);
         } catch (ReflectiveOperationException exception) {
@@ -51,7 +51,7 @@ public abstract class ApparatusProgressionMixin {
     private void antarchyascension$check(ItemStack reagent, Player player, CallbackInfoReturnable<Boolean> ci) {
         BlockEntity tile = (BlockEntity)(Object)this;
         if (!(tile.getLevel() instanceof ServerLevel)) return;
-        // Transfer completed legacy tile credit before another craft replaces its state.
+        // Saves completed credit before another craft starts
         antarchyascension$credit();
         antarchyascension$startingRecipe = antarchyascension$resolve(reagent, player);
         if (antarchyascension$startingRecipe != null
@@ -65,6 +65,7 @@ public abstract class ApparatusProgressionMixin {
     @Inject(method = "attemptCraft", at = @At("RETURN"))
     private void antarchyascension$remember(ItemStack reagent, Player player, CallbackInfoReturnable<Boolean> ci) {
         BlockEntity tile = (BlockEntity)(Object)this;
+        // Remembers who started a successful craft
         if (ci.getReturnValueZ() && tile.getLevel() instanceof ServerLevel) {
             antarchyascension$crafter = player == null ? null : player.getUUID();
             antarchyascension$recipe = antarchyascension$startingRecipe;
@@ -90,11 +91,13 @@ public abstract class ApparatusProgressionMixin {
     @Unique
     private void antarchyascension$credit() {
         BlockEntity tile = (BlockEntity)(Object)this;
+        // Only grants completed crafts on the server
         if (!antarchyascension$completed || !(tile.getLevel() instanceof ServerLevel level)) return;
         UUID crafter = antarchyascension$crafter;
         if (crafter != null && antarchyascension$recipe != null) {
             PendingApparatusCredits.queue(level, crafter, antarchyascension$recipe);
         }
+        // Clears the credit to prevent duplicate grants
         antarchyascension$crafter = null;
         antarchyascension$recipe = null;
         antarchyascension$completed = false;
@@ -115,7 +118,7 @@ public abstract class ApparatusProgressionMixin {
     private void antarchyascension$load(CompoundTag tag, HolderLookup.Provider registries, CallbackInfo ci) {
         if (tag.hasUUID("antarchyascension_crafter")) {
             antarchyascension$crafter = tag.getUUID("antarchyascension_crafter");
-            // Preserve pending ritual credit saved before the recipe-directory migration.
+            // Accepts the old saved recipe names
             String savedRecipe = tag.getString("antarchyascension_recipe");
             antarchyascension$recipe = ResourceLocation.tryParse(switch (savedRecipe) {
                 case "antarchyascension:skybound_sigil" -> "antarchyascension:progression/sigils/skybound_sigil";

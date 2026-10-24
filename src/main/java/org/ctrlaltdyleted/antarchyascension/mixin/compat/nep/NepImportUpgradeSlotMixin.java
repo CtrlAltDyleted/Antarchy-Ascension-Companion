@@ -19,9 +19,9 @@ public abstract class NepImportUpgradeSlotMixin {
     private void antarchyascension$excludeNepImportSlot(
         Slot slot, SlotSemantic semantic, CallbackInfoReturnable<Slot> cir
     ) {
+        // Only skips NEP's Pattern Provider import slot
         if ((Object) this instanceof PatternProviderMenu && semantic.id().equals("nep:import_upgrade")) {
-            // NEP only retains this Slot reference; registering it with the menu would change
-            // the slot ownership/layout behavior this compatibility path is avoiding.
+            // NEP keeps this slot reference without adding it to the menu
             cir.setReturnValue(slot);
         }
     }

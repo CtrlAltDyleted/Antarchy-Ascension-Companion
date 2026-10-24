@@ -15,14 +15,12 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Pseudo
 @Mixin(targets = "com.benbenlaw.appliedsticks.event.ServerEvents", remap = false)
 public abstract class AppliedSticksServerEventsMixin {
     @Unique
@@ -48,6 +46,7 @@ public abstract class AppliedSticksServerEventsMixin {
             return;
         }
 
+        // Only continues for a linked construction stick
         ItemStack heldItem = player.getMainHandItem();
         if (!heldItem.is(antarchyascension$CONSTRUCTION_STICKS)) {
             antarchyascension$clearAndCancel(player, ci);
@@ -63,6 +62,7 @@ public abstract class AppliedSticksServerEventsMixin {
 
     @Unique
     private static void antarchyascension$clearAndCancel(Player player, CallbackInfo ci) {
+        // Clears the old preview when the job stops
         lastSentPositions.remove(player);
         ci.cancel();
     }

@@ -12,11 +12,9 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Pseudo
 @Mixin(targets = "de.maxhenkel.easyvillagers.blocks.tileentity.render.TraderRenderer", remap = false)
 public abstract class AntosWorkstationRenderMixin {
     @Unique
@@ -30,6 +28,7 @@ public abstract class AntosWorkstationRenderMixin {
     private static void antarchyascension$renderComputer(
             BlockRenderDispatcher renderer, BlockState state, PoseStack pose,
             MultiBufferSource buffers, int light, int overlay, Operation<Void> original) {
+        // Only replaces the AntOS computer render
         if (!BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(antarchyascension$computer)) {
             original.call(renderer, state, pose, buffers, light, overlay);
             return;
@@ -37,12 +36,14 @@ public abstract class AntosWorkstationRenderMixin {
 
         pose.pushPose();
         try {
+            // Centers and scales the computer model
             pose.translate(0.5, 0.5, 0.5);
             pose.scale(2.0F, 2.0F, 2.0F);
             var minecraft = Minecraft.getInstance();
             minecraft.getItemRenderer().renderStatic(new ItemStack(state.getBlock()),
                     ItemDisplayContext.FIXED, light, overlay, pose, buffers, minecraft.level, 0);
         } finally {
+            // Restores the render position and scale
             pose.popPose();
         }
     }

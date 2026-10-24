@@ -7,10 +7,8 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import org.ctrlaltdyleted.antarchyascension.client.compat.watut.WatutCaptureState;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Pseudo
 @Mixin(targets = "net.neoforged.neoforge.client.ClientHooks", remap = false)
 public abstract class ModdedWatutCaptureMixin {
     @WrapOperation(
@@ -25,12 +23,14 @@ public abstract class ModdedWatutCaptureMixin {
     private static void antarchyascension$captureScreensMissingWatutHook(Screen screen,
             GuiGraphics graphics, int mouseX, int mouseY, float partialTick,
             Operation<Void> original) {
+        // Checks whether WATUT captured the screen
         long hookCallsBefore = WatutCaptureState.hookCalls();
         original.call(screen, graphics, mouseX, mouseY, partialTick);
 
-        // Preserve WATUT's normal hook; supply it only for overrides that bypass it.
+        // Captures screens that missed the normal WATUT hook
         if (WatutCaptureState.hookCalls() == hookCallsBefore
                 && Minecraft.getInstance().screen == screen
+                // Prevents capture from calling itself
                 && !WatutRenderHelperAccessor.antarchyascension$isCapturing()) {
             WatutRenderHelperAccessor.antarchyascension$capture(
                     graphics, mouseX, mouseY, partialTick);

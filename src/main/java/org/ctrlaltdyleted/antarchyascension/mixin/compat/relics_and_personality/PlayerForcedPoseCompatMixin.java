@@ -34,6 +34,7 @@ public abstract class PlayerForcedPoseCompatMixin {
     private void antarchyascension$protectForcedPose(Pose pose, CallbackInfo ci) {
         Player player = (Player) (Object) this;
 
+        // Checks whether Helium Flamingo requested the pose
         boolean fromHeliumFlamingo = antarchyascension$STACK_WALKER.walk(frames ->
                 frames
                         .limit(12)
@@ -51,6 +52,7 @@ public abstract class PlayerForcedPoseCompatMixin {
 
         Pose currentPose = player.getForcedPose();
 
+        // Keeps poses set by other mods
         if (pose == Pose.SWIMMING) {
             if (currentPose == null || antarchyascension$heliumOwnsPose) {
                 antarchyascension$heliumOwnsPose = true;
@@ -61,6 +63,7 @@ public abstract class PlayerForcedPoseCompatMixin {
             return;
         }
 
+        // Only clears poses owned by Helium Flamingo
         if (pose == null) {
             if (antarchyascension$heliumOwnsPose) {
                 antarchyascension$heliumOwnsPose = false;

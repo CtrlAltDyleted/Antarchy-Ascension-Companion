@@ -5,13 +5,11 @@ import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.client.gui.screens.Screen;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Pseudo
 @Mixin(targets = "net.fabricmc.fabric.api.client.screen.v1.ScreenEvents", remap = false)
 public abstract class ScreenEventsNullRemovalMixin {
     @Unique
@@ -27,6 +25,7 @@ public abstract class ScreenEventsNullRemovalMixin {
     )
     private static void antarchyascension$ignoreNullRemoval(
             Screen screen, CallbackInfoReturnable<Event<ScreenEvents.Remove>> callback) {
+        // Returns an empty event for a missing screen
         if (screen == null) {
             // Callers immediately invoke the returned event, so null is not a safe return value.
             if (antarchyascension$nullRemovalEvent == null) {

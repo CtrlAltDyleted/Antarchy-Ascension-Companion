@@ -32,7 +32,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
@@ -47,6 +46,7 @@ public final class CreateSaJetpackRenderHooks {
             ConcurrentHashMap.newKeySet();
 
     private static void antarchyascension$logReflectionFailure(String context, Throwable failure) {
+        // Logs each failure once
         if (antarchyascension$loggedFailures.add(context)) {
             AntarchyAscension.LOGGER.warn("Create S&A jetpack rendering failure in {}", context, failure);
         }
@@ -57,11 +57,8 @@ public final class CreateSaJetpackRenderHooks {
 
     @SubscribeEvent
     public static void onAddLayers(EntityRenderersEvent.AddLayers event) {
-        // Each reload creates fresh layers with fresh model and renderer caches.
+        // Resets the caches when layers reload
         antarchyascension$loggedFailures.clear();
-        if (!ModList.get().isLoaded("create_sa")) {
-            return;
-        }
 
         for (var skinModel : event.getSkins()) {
             PlayerRenderer renderer = event.getSkin(skinModel);
@@ -78,6 +75,7 @@ public final class CreateSaJetpackRenderHooks {
                     PlayerModel<AbstractClientPlayer>
                     > {
 
+        // Caches the renderers and models
         private final Map<String, RendererInvoker> renderers = new HashMap<>();
         private final Map<String, ArmorModelInvoker> armorModels = new HashMap<>();
 
@@ -113,6 +111,7 @@ public final class CreateSaJetpackRenderHooks {
                 return;
             }
 
+            // Finds a visible Curios jetpack
             ItemStack jetpack =
                     CurioEquipmentHelper.findFirstRenderedInSlot(
                             player,
@@ -184,6 +183,7 @@ public final class CreateSaJetpackRenderHooks {
                 return;
             }
 
+            // Temporarily uses the jetpack as chest equipment
             ItemStack realChest =
                     player.getItemBySlot(EquipmentSlot.CHEST);
 
@@ -204,6 +204,7 @@ public final class CreateSaJetpackRenderHooks {
                         netHeadYaw,
                         headPitch);
             }
+            // Restores the real chest equipment
             finally {
                 player.setItemSlot(
                         EquipmentSlot.CHEST,
@@ -328,9 +329,7 @@ public final class CreateSaJetpackRenderHooks {
                 return created;
             }
             catch (ReflectiveOperationException | LinkageError failure) {
-                armorModels.put(spec.modelClassName(), null);
-                antarchyascension$logReflectionFailure("building armor model " + spec.modelClassName(), failure);
-                return null;
+                throw new IllegalStateException("Cannot build Create S&A armor model " + spec.modelClassName(), failure);
             }
         }
     }
@@ -382,9 +381,7 @@ public final class CreateSaJetpackRenderHooks {
                 return created;
             }
             catch (ReflectiveOperationException | LinkageError failure) {
-                rendererMap.put(className, null);
-                antarchyascension$logReflectionFailure("building renderer " + className, failure);
-                return null;
+                throw new IllegalStateException("Cannot build Create S&A renderer " + className, failure);
             }
         }
     }
@@ -461,6 +458,7 @@ public final class CreateSaJetpackRenderHooks {
                         netHeadYaw,
                         headPitch);
 
+                // Matches the model to the player pose
                 copyPart(
                         parentModel.body,
                         (ModelPart) bodyField.get(model));

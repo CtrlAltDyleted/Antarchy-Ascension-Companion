@@ -7,11 +7,9 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Pseudo
 @Mixin(targets = "g_mungus.zps.compat.create.commands.CreateScriptCommands", remap = false)
 public abstract class CreateScriptCommandsMixin {
     @Redirect(
@@ -22,11 +20,12 @@ public abstract class CreateScriptCommandsMixin {
     private static BlockEntity antarchyascension$onlyConstructCreateEntities(
         EntityBlock block, BlockPos pos, BlockState state
     ) {
-        // ZPS only uses SmartBlockEntity behaviours. Check class metadata before construction.
+        // Checks the Create block type before creating its entity
         if (!(block instanceof IBE<?> createBlock)
             || !SmartBlockEntity.class.isAssignableFrom(createBlock.getBlockEntityClass())) {
             return null;
         }
+        // Creates the block entity after checking its type
         return block.newBlockEntity(pos, state);
     }
 }

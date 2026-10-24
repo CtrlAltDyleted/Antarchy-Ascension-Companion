@@ -13,7 +13,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
 
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
@@ -34,13 +33,12 @@ public final class CreateSaTankFluidCapabilities {
     public static void register(
             RegisterCapabilitiesEvent event) {
 
-        if (!ModList.get().isLoaded("create_sa")) {
-            return;
-        }
 
+        // Finds the native tank handler
         Constructor<?> constructor =
                 findConstructor();
 
+        // Sets tank sizes in millibuckets
         registerTank(
                 event,
                 constructor,
@@ -105,6 +103,7 @@ public final class CreateSaTankFluidCapabilities {
         Item item =
                 BuiltInRegistries.ITEM.get(id);
 
+        // Adds fluid handling to each tank
         event.registerItem(
                 Capabilities.FluidHandler.ITEM,
                 (stack, context) ->

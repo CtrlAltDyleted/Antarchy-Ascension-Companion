@@ -34,5 +34,9 @@
   "item.antarchyascension.industrial_core": "Industrial Core",
   "item.antarchyascension.keystone_of_industry": "Keystone of Industry",
   "item.antarchyascension.basic_circuit_press": "Basic Circuit Press",
-  "item.antarchyascension.incomplete_blank_pattern": "Incomplete Blank Pattern"
+  "item.antarchyascension.incomplete_blank_pattern": "Incomplete Blank Pattern",
+  "curios.identifier.oxygen_tank": "Oxygen Tank",
+  "curios.identifier.hdpe_elytra": "Elytra",
+  "tooltip.antarchyascension.oxygen_tank.location": "Supplies oxygen from your inventory or Oxygen Tank Curios slot.",
+  "create.tooltip.antarchyascension.energy_per_tick_unit": "FE/t"
 }

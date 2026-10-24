@@ -12,12 +12,10 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Pseudo
 @Mixin(targets = "com.teamremastered.endrem.item.EREnderEye", remap = false)
 public abstract class EndRemEyeInsertionMixin {
     @Inject(
@@ -30,6 +28,7 @@ public abstract class EndRemEyeInsertionMixin {
         CallbackInfoReturnable<InteractionResult> cir
     ) {
         Level level = context.getLevel();
+        // Only saves successful insertions on the server
         if (level.isClientSide || cir.getReturnValue() != InteractionResult.CONSUME) {
             return;
         }
@@ -41,6 +40,7 @@ public abstract class EndRemEyeInsertionMixin {
         }
 
         BlockEntity entity = level.getBlockEntity(pos);
+        // Saves the inserted eye and updates clients
         String eye = BuiltInRegistries.ITEM.getKey((Item) (Object) this).getPath();
         if (EndRemPortalFrameEyeCompat.setEye(entity, eye)) {
             level.sendBlockUpdated(pos, state, state, 3);

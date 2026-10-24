@@ -22,7 +22,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import org.ctrlaltdyleted.antarchyascension.AntarchyAscension;
 
-/** Completed recipe criteria survive logout without reserving their apparatus. */
+// Saves recipe credit until the player can receive it
 @EventBusSubscriber(modid = AntarchyAscension.MODID)
 public final class PendingApparatusCredits extends SavedData {
     private static final Factory<PendingApparatusCredits> FACTORY =
@@ -31,6 +31,7 @@ public final class PendingApparatusCredits extends SavedData {
     private final Map<UUID, Set<ResourceLocation>> pending = new HashMap<>();
 
     private static PendingApparatusCredits get(MinecraftServer server) {
+        // Stores pending credit in the Overworld save
         return server.overworld().getDataStorage().computeIfAbsent(FACTORY, DATA_NAME);
     }
 
@@ -54,7 +55,7 @@ public final class PendingApparatusCredits extends SavedData {
     }
 
     void add(UUID player, ResourceLocation recipe) {
-        // Advancement criteria need one delivery per recipe, even after an old tile is reloaded.
+        // Keeps one pending credit per recipe
         if (pending.computeIfAbsent(player, ignored -> new LinkedHashSet<>()).add(recipe)) {
             setDirty();
         }
@@ -63,6 +64,7 @@ public final class PendingApparatusCredits extends SavedData {
     void deliver(UUID player, Consumer<ResourceLocation> grant) {
         Set<ResourceLocation> recipes = pending.get(player);
         if (recipes == null) return;
+        // Grants and removes pending recipe credit
         for (ResourceLocation recipe : List.copyOf(recipes)) {
             grant.accept(recipe);
             recipes.remove(recipe);
@@ -77,6 +79,7 @@ public final class PendingApparatusCredits extends SavedData {
         for (int i = 0; i < entries.size(); i++) {
             CompoundTag entry = entries.getCompound(i);
             ResourceLocation recipe = ResourceLocation.tryParse(entry.getString("recipe"));
+            // Checks the saved player and recipe
             if (!entry.hasUUID("player") || recipe == null) {
                 throw new IllegalStateException("Invalid pending apparatus credit at index " + i);
             }

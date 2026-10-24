@@ -11,12 +11,14 @@ public final class EndRemPortalFrameEyeCompat {
     }
 
     public static boolean setEye(BlockEntity entity, String eye) {
+        // Checks for an End Remastered frame
         if (entity == null || !entity.getClass().getName().equals(FRAME_ENTITY_CLASS)) {
             return false;
         }
 
         try {
             entity.getClass().getMethod("setEye", String.class).invoke(entity, eye);
+            // Saves the eye change
             entity.setChanged();
             return true;
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException exception) {

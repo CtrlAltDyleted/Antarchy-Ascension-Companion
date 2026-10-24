@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.ctrlaltdyleted.antarchyascension.AntarchyAscension;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -16,11 +15,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
-@Pseudo
 @Mixin(
     targets = "com.mars.deimos.datagen.DeimosRecipeGenerator",
     remap = false
 )
+// Blocks generated recipes with oversized results
 public abstract class DeimosGeneratedRecipeStackSizeMixin {
     @Inject(
         method = "createShapedRecipeJson(Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/lang/String;I)V",
@@ -97,6 +96,7 @@ public abstract class DeimosGeneratedRecipeStackSizeMixin {
         int resultCount,
         String recipeKind
     ) {
+        // Skips empty IDs and ordinary result counts
         if (resultCount <= 1 || resultId == null || resultId.isBlank()) {
             return false;
         }
@@ -114,6 +114,7 @@ public abstract class DeimosGeneratedRecipeStackSizeMixin {
         }
 
         ItemStack stack = item.getDefaultInstance();
+        // Checks the item's stack limit
         int maxStackSize = stack.getMaxStackSize();
 
         if (resultCount <= maxStackSize) {

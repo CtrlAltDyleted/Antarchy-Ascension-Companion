@@ -24,6 +24,7 @@ public abstract class QuarkMobCategoryMixin {
         require = 1
     )
     private MobCategory antarchyascension$useMonsterCategory(MobCategory category) {
+        // Registers these mobs as monsters
         return MobCategory.MONSTER;
     }
 }

@@ -39,25 +39,32 @@ public final class OwnedItemTooltips {
             event.getToolTip().add(Component.translatable("tooltip.antarchyascension.uranium_scrap")
                     .withStyle(ChatFormatting.GRAY));
         }
+        if (org.ctrlaltdyleted.antarchyascension.compat.curios.CurioEquipmentHelper.isOxygenTank(event.getItemStack())) {
+            event.getToolTip().add(Component.translatable("tooltip.antarchyascension.oxygen_tank.location")
+                    .withStyle(ChatFormatting.GRAY));
+        }
+        // Skips unsupported items
         if (!id.getNamespace().equals("create_sa") || !JETPACKS.contains(id.getPath())) return;
         var level = Minecraft.getInstance().level;
         boolean unlimited = level != null && level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT)
                 .get(ABOVE_THE_CLOUDS)
                 .map(holder -> event.getItemStack().getEnchantmentLevel(holder) > 0)
                 .orElse(false);
-        // Create S&A's wrapped altitude line includes legacy color codes.
+        // Removes color codes before matching the altitude text
         String altitudeTemplate = ChatFormatting.stripFormatting(
                 Component.translatable("item_desc.jetpack.desc2").getString()).strip();
         int placeholder = altitudeTemplate.indexOf('%');
         Pattern altitude = placeholder < 0 ? null : Pattern.compile(
                 Pattern.quote(altitudeTemplate.substring(0, placeholder)) + "-?\\d+" +
                 Pattern.quote(altitudeTemplate.substring(placeholder + 1)));
+        // Gets the assigned flight key
         var flight = Arrays.stream(Minecraft.getInstance().options.keyMappings)
                 .filter(mapping -> mapping.getName().equals("key.create_sa.flying"))
                 .findFirst();
         Component key = flight.filter(mapping -> !mapping.isUnbound())
                 .map(mapping -> mapping.getTranslatedKeyMessage())
                 .orElseGet(() -> Component.translatable("tooltip.antarchyascension.unbound"));
+        // Updates the matching tooltip lines
         for (int i = 0; i < event.getToolTip().size(); i++) {
             String line = event.getToolTip().get(i).getString();
             if (unlimited && altitude != null && altitude.matcher(

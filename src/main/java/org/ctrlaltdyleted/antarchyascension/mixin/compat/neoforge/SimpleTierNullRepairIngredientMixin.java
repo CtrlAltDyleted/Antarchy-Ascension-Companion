@@ -18,6 +18,7 @@ public abstract class SimpleTierNullRepairIngredientMixin {
 
     @Inject(method = "getRepairIngredient", at = @At("HEAD"), cancellable = true)
     private void antarchyascension$nullRepairIngredient(CallbackInfoReturnable<Ingredient> cir) {
+        // Uses an empty ingredient when the supplier is missing
         if (this.repairIngredient == null) {
             cir.setReturnValue(Ingredient.EMPTY);
         }

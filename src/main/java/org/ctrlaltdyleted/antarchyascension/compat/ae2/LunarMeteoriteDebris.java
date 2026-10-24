@@ -28,6 +28,7 @@ public final class LunarMeteoriteDebris {
             return settings;
         }
 
+        // Removes lunar crater fluids
         CraterType type = settings.getCraterType();
         if (type != CraterType.LAVA && type != CraterType.WATER && !settings.isCraterLake()) {
             return settings;
@@ -47,10 +48,12 @@ public final class LunarMeteoriteDebris {
             return level.setBlock(pos, state, flags);
         }
 
+        // Skips plants and dripstone
         if (isOverworldVegetationOrDripstone(state)) {
             return false;
         }
 
+        // Uses lunar blocks for crater debris
         Block block = state.getBlock();
         if (block == Blocks.GRAVEL || block == Blocks.DIRT) {
             state = moonBlock(MOON_SAND);

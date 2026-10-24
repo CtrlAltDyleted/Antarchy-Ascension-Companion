@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
         targets = "org.cyclops.integratedmekanism.capability.recipehandler.MekanismCapabilityLoader",
         remap = false
 )
+// Kept disabled for the factory-tier test
 public abstract class IntegratedMekanismFactoryTierMixin {
     @Coerce
     @Redirect(
@@ -33,6 +34,7 @@ public abstract class IntegratedMekanismFactoryTierMixin {
 
             int count = 0;
 
+            // Keeps the four base factory tiers
             for (Object value : values) {
                 if (!(value instanceof Enum<?> tier)) {
                     continue;
@@ -46,6 +48,7 @@ public abstract class IntegratedMekanismFactoryTierMixin {
                 }
             }
 
+            // Checks that all four tiers were found
             if (count != 4) {
                 throw new IllegalStateException(
                         "Expected 4 base Mekanism factory tiers, found " + count

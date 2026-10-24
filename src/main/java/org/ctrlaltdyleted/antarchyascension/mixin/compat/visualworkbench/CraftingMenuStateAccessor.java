@@ -20,6 +20,7 @@ public interface CraftingMenuStateAccessor {
     @Accessor("resultSlots")
     ResultContainer antarchyascension$resultSlots();
 
+    // Allows the crafting result to be recalculated
     @Invoker("slotChangedCraftingGrid")
     static void antarchyascension$updateResult(AbstractContainerMenu menu, Level level,
             Player player, CraftingContainer grid, ResultContainer result,

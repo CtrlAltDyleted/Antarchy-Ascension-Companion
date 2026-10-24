@@ -31,6 +31,7 @@ public final class AppliedFluxFeJeiPlugin implements IModPlugin {
             "applied_flux_fe"
         );
 
+    // Adds Forge Energy as a JEI ingredient
     private static final FluxKey FE_KEY = FluxKey.of(EnergyType.FE);
 
     private static final IIngredientType<FluxKey> FE_TYPE =
@@ -124,6 +125,7 @@ public final class AppliedFluxFeJeiPlugin implements IModPlugin {
             }
         };
 
+    // Converts between JEI and AE2 energy entries
     private static final IngredientConverter<FluxKey> FE_CONVERTER =
         new IngredientConverter<>() {
             @Override
@@ -153,6 +155,7 @@ public final class AppliedFluxFeJeiPlugin implements IModPlugin {
                     return null;
                 }
 
+                // Uses one unit for the ingredient entry
                 return new GenericStack(FE_KEY, 1L);
             }
         };
