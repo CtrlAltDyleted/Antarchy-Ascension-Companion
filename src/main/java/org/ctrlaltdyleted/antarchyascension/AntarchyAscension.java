@@ -1,6 +1,7 @@
 package org.ctrlaltdyleted.antarchyascension;
 import org.ctrlaltdyleted.antarchyascension.content.ModBlocks;
 import org.ctrlaltdyleted.antarchyascension.content.ModItems;
+import org.ctrlaltdyleted.antarchyascension.content.ModFluids;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -15,6 +16,8 @@ public class AntarchyAscension {
 
     public AntarchyAscension(IEventBus modEventBus) {
         // Registers the mod's blocks and items
+        ModFluids.FLUID_TYPES.register(modEventBus);
+        ModFluids.FLUIDS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         modEventBus.addListener(this::addCreativeTabContents);
@@ -42,6 +45,9 @@ public class AntarchyAscension {
             event.accept(ModItems.NETHER_CRYSTAL_SEED.get());
             event.accept(ModItems.NETHER_CORE.get());
             event.accept(ModItems.MOLTEN_HEART.get());
+            event.accept(ModItems.SPENT_MOLTEN_HEART.get());
+            event.accept(ModItems.RIFTWOOD.get());
+            event.accept(ModItems.MOLTEN_DIMENSIONAL_ENERGY_BUCKET.get());
             event.accept(ModItems.INDUSTRIAL_CORE.get());
             event.accept(ModItems.KEYSTONE_OF_INDUSTRY.get());
         }

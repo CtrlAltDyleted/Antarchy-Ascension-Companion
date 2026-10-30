@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "pattern": [
-    "S S",
     "SGS",
-    "S S"
+    "GSG",
+    "SGS"
   ],
   "key": {
     "S": {
@@ -16,6 +16,6 @@
   },
   "result": {
     "id": "antarchyascension:reinforced_silica_glass",
-    "count": 2
+    "count": 4
   }
 }

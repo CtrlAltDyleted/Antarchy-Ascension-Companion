@@ -8,8 +8,9 @@ Ongoing **0.3.0-alpha** development is listed under Unreleased, not as a publish
 
 ### Added
 
-- Progression items including Nether Core, Molten Heart, Industrial Core, Keystone of Industry, sigils, keys, silica materials, Basic Circuit Press, and Calculation Microchip.
+- Progression items including Nether Core, Molten Heart, Spent Molten Heart, Riftwood, Industrial Core, Keystone of Industry, sigils, keys, silica materials, Basic Circuit Press, and Calculation Microchip.
 - Personal progression checks for rituals and Seal of the Underworld use.
+- Molten Dimensional Energy, including its bucket and contact hazard.
 
 ### Changed
 
@@ -29,6 +30,8 @@ Ongoing **0.3.0-alpha** development is listed under Unreleased, not as a publish
 - Ritual progression credit and advancement unlocking.
 - Visual Workbench crafting displays and modded screen rendering in What Are They Up To.
 - Curios Equipment now shift clicks into the correct slot when curios menu is open.
+- Horizontal HUD displacement when Quark's Elytra Indicator is used with Overflowing Bars.
+- Fluid and chemical recipe navigation by mouse in Mekanism JEI categories.
 
 ## 0.2.0-alpha - 2026-09-23
 

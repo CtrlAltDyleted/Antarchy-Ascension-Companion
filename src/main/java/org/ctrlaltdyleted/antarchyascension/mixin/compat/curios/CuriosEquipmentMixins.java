@@ -22,6 +22,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import org.ctrlaltdyleted.antarchyascension.compat.curios.CurioEquipmentHelper;
+import org.ctrlaltdyleted.antarchyascension.client.compat.quark.QuarkHudCleanup;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Shadow;
@@ -181,7 +182,36 @@ public abstract class CuriosEquipmentMixins {
         }
     }
     @Mixin(targets = "org.violetmoon.quark.content.client.module.ElytraIndicatorModule$Client", remap = false)
-    public abstract static class ElytraIndicatorEquipment {
+    public abstract static class ElytraIndicatorEquipment implements QuarkHudCleanup.ArmorShift {
+        @Shadow private int shift;
+        @Unique private PoseStack antarchyascension$armorPose;
+        @Unique private float antarchyascension$armorShift;
+
+        @WrapOperation(method = "hudPre", at = @At(value = "INVOKE", target =
+                "Lcom/mojang/blaze3d/vertex/PoseStack;translate(FFF)V", ordinal = 0), require = 1, allow = 1)
+        private void antarchyascension$trackArmorShift(PoseStack pose, float x, float y, float z,
+                Operation<Void> original) {
+            original.call(pose, x, y, z);
+            antarchyascension$armorPose = pose;
+            antarchyascension$armorShift = x;
+            QuarkHudCleanup.track(this);
+        }
+
+        @Inject(method = "hudPost", at = @At("RETURN"), require = 1)
+        private void antarchyascension$clearArmorShift(CallbackInfo ci) {
+            antarchyascension$armorPose = null;
+            QuarkHudCleanup.clear(this);
+        }
+
+        @Override
+        public void restoreArmorShift() {
+            if (antarchyascension$armorPose != null) {
+                antarchyascension$armorPose.translate(-antarchyascension$armorShift, 0, 0);
+                antarchyascension$armorPose = null;
+                shift = 0;
+            }
+        }
+
         @WrapOperation(method = "hudPre", at = @At(value = "INVOKE", target =
                 "Lnet/minecraft/world/entity/player/Player;getItemBySlot(Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/ItemStack;"), require = 1, allow = 1)
         private ItemStack antarchyascension$curioIndicator(Player player, EquipmentSlot slot, Operation<ItemStack> original) {

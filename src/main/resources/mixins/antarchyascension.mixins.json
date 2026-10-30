@@ -39,6 +39,7 @@
     "compat.curios.CuriosEquipmentMixins$OrnithopterFlightDurability"
   ],
   "client": [
+    "compat.jei.MekanismJeiMixins",
     "compat.curios.CuriosEquipmentMixins$ClientFlightStart",
     "compat.easyvillagers.AntosWorkstationRenderMixin",
     "compat.fabricscreenapi.ScreenEventsNullRemovalMixin",

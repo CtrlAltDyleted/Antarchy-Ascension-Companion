@@ -1,7 +1,9 @@
 package org.ctrlaltdyleted.antarchyascension.content;
 
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -36,6 +38,11 @@ public final class ModItems {
     public static final DeferredItem<Item> NETHER_CRYSTAL_SEED = ITEMS.registerSimpleItem("nether_crystal_seed", new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> NETHER_CORE = ITEMS.registerSimpleItem("nether_core", new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> MOLTEN_HEART = ITEMS.registerSimpleItem("molten_heart", new Item.Properties().stacksTo(1));
+    public static final DeferredItem<Item> SPENT_MOLTEN_HEART = ITEMS.registerSimpleItem("spent_molten_heart");
+    public static final DeferredItem<Item> RIFTWOOD = ITEMS.registerSimpleItem("riftwood");
+    public static final DeferredItem<BucketItem> MOLTEN_DIMENSIONAL_ENERGY_BUCKET = ITEMS.register(
+            "molten_dimensional_energy_bucket", () -> new BucketItem(ModFluids.MOLTEN_DIMENSIONAL_ENERGY.get(),
+                    new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
     public static final DeferredItem<Item> SKYBOUND_KEY = ITEMS.registerSimpleItem("skybound_key", new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> INDUSTRIAL_CORE = ITEMS.registerSimpleItem("industrial_core", new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> KEYSTONE_OF_INDUSTRY = ITEMS.registerSimpleItem("keystone_of_industry", new Item.Properties().stacksTo(1));
