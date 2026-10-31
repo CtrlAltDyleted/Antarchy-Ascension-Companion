@@ -29,13 +29,6 @@ repositories {
         }
     }
     maven {
-        name = "Forgified Fabric API"
-        url = "https://maven.su5ed.dev/releases/"
-        content {
-            includeGroup "org.sinytra.forgified-fabric-api"
-        }
-    }
-    maven {
         name = "CurseMaven"
         url = "https://www.cursemaven.com"
         content {
@@ -105,12 +98,6 @@ configurations {
 }
 
 dependencies {
-    compileOnly("org.sinytra.forgified-fabric-api:fabric-api-base:0.4.42+d1308ded19") {
-        transitive = false
-    }
-    compileOnly("org.sinytra.forgified-fabric-api:fabric-screen-api-v1:2.0.25+4228281319") {
-        transitive = false
-    }
     compileOnly "curse.maven:create-328085:7963363"
     compileOnly("curse.maven:create-qol-905508:8265828") { transitive = false }
     compileOnly("net.createmod.ponder:ponder-neoforge:1.0.82+mc1.21.1") { transitive = false }

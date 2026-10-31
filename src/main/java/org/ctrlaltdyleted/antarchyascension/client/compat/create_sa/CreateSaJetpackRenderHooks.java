@@ -28,12 +28,14 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RenderArmEvent;
 
 @SuppressWarnings("removal")
 @EventBusSubscriber(
@@ -42,6 +44,51 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
         bus = EventBusSubscriber.Bus.MOD
 )
 public final class CreateSaJetpackRenderHooks {
+    private static boolean renderingCurioHand;
+    private static Method netheriteHandRenderer;
+
+    public static boolean isRenderingCurioHand() {
+        return renderingCurioHand;
+    }
+
+    public static boolean renderCurioHand(PoseStack poseStack, MultiBufferSource buffers,
+            int light, AbstractClientPlayer player, HumanoidArm arm) {
+        // Ad Astra draws suit arms later in PlayerRenderer.renderHand
+        for (Class<?> type = player.getItemBySlot(EquipmentSlot.CHEST).getItem().getClass();
+                type != null; type = type.getSuperclass()) {
+            if (type.getName().equals("earth.terrarium.adastra.common.items.armor.SpaceSuitItem")) {
+                return false;
+            }
+        }
+
+        ItemStack jetpack = CurioEquipmentHelper.findFirstRenderedInSlot(
+                player, CurioEquipmentHelper.JETPACK_SLOT,
+                stack -> BuiltInRegistries.ITEM.getKey(stack.getItem()).toString()
+                        .equals("create_sa:netherite_jetpack_chestplate"));
+        if (jetpack.isEmpty()) return false;
+
+        RenderArmEvent event = new RenderArmEvent(poseStack, buffers, light, player, arm);
+        boolean previous = renderingCurioHand;
+        poseStack.pushPose();
+        try {
+            if (netheriteHandRenderer == null) {
+                netheriteHandRenderer = Class.forName(
+                        "net.mcreator.createstuffadditions.client.renderer.jetpack.NetheriteJetpackFirstPersonRenderer")
+                        .getMethod("onRenderPlayerHand", RenderArmEvent.class);
+            }
+            // Uses the native arm model after other equipment renderers have finished
+            renderingCurioHand = true;
+            netheriteHandRenderer.invoke(null, event);
+            return event.isCanceled();
+        } catch (ReflectiveOperationException failure) {
+            antarchyascension$logReflectionFailure("first-person hand", failure);
+            return false;
+        } finally {
+            renderingCurioHand = previous;
+            poseStack.popPose();
+        }
+    }
+
     private static final Set<String> antarchyascension$loggedFailures =
             ConcurrentHashMap.newKeySet();
 

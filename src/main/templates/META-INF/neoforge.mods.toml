@@ -150,13 +150,6 @@ ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
-modId="zps"
-type="required"
-versionRange="[1.21.1-2.6.4,)"
-ordering="AFTER"
-side="BOTH"
-
-[[dependencies.${mod_id}]]
 modId="visualworkbench"
 type="required"
 versionRange="[21.1.2,22)"
@@ -237,20 +230,6 @@ side="CLIENT"
 modId="create_better_motors"
 type="required"
 versionRange="[4.0.0,5)"
-ordering="AFTER"
-side="CLIENT"
-
-[[dependencies.${mod_id}]]
-modId="fabric_api_base"
-type="required"
-versionRange="[0.4.42,)"
-ordering="AFTER"
-side="CLIENT"
-
-[[dependencies.${mod_id}]]
-modId="fabric_screen_api_v1"
-type="required"
-versionRange="[2.0.25,)"
 ordering="AFTER"
 side="CLIENT"
 

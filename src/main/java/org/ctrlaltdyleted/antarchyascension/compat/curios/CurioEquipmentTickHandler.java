@@ -25,21 +25,6 @@ public final class CurioEquipmentTickHandler {
 
         Player player = event.getEntity();
 
-        ItemStack jetpack = CurioEquipmentHelper.findFirstInSlot(
-                player,
-                CurioEquipmentHelper.JETPACK_SLOT,
-                stack -> stack.is(CurioEquipmentHelper.CREATE_SA_JETPACKS));
-
-        // Ticks the equipped jetpack
-        if (!jetpack.isEmpty()) {
-            jetpack.getItem().inventoryTick(
-                    jetpack,
-                    player.level(),
-                    player,
-                    -1,
-                    false);
-        }
-
         // Ticks the filling and fueling tanks
         CurioEquipmentHelper.forEachStackInSlot(
                 player,

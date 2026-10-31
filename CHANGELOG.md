@@ -23,6 +23,7 @@ Ongoing **0.3.0-alpha** development is listed under Unreleased, not as a publish
 
 - Time in a Bottle Entity Fix compatibility hooks after the pack removed that mod.
 - The previous Better Combat animation workaround for morphed players.
+- Obsolete mandatory Fabric API and Zero Point Systems dependencies and their compatibility hooks.
 
 ### Fixed
 

@@ -100,6 +100,15 @@ public abstract class CuriosEquipmentMixins {
 
     @Mixin(targets = "net.lulaboludo.createornithopterglider.integration.curios.CuriosLoaded", remap = false)
     public abstract static class GliderSlot {
+        @Inject(method = "hasOrnithopter", at = @At("RETURN"), cancellable = true, require = 1)
+        private void antarchyascension$checkGliderEligibility(Player player, CallbackInfoReturnable<Boolean> cir) {
+            if (cir.getReturnValue()) {
+                // Presence alone must not bypass the native durability check
+                ItemStack glider = CurioEquipmentHelper.ornithopter(player);
+                cir.setReturnValue(!glider.isEmpty() && glider.canElytraFly(player));
+            }
+        }
+
         @Inject(method = "getOrnithopter", at = @At("RETURN"), cancellable = true)
         private void antarchyascension$dedicatedSlot(Player player, CallbackInfoReturnable<ItemStack> cir) {
             // Finds the glider in its dedicated slot
